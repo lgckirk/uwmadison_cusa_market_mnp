@@ -1,0 +1,52 @@
+<!--rmp-home.wxml-->
+
+<view class="navigate">
+<image class="title" mode="widthFix" src="{{titleImg}}"></image>
+  <view class="icon">
+    
+    <view class ="set" id="set1">
+    <image class="iconImg" mode="widthFix" bindtap="jumpToBus" src="{{iconArray[0].checkImage}}"></image>
+    
+    </view>
+
+
+    <view class ="set" id="set2" bindtap="jumpToRMP">
+    <image class="iconImg"  mode="widthFix" src="{{iconArray[1].checkImage}}"></image>
+    
+    </view>
+
+    
+    
+
+    <view class="set" id="set3">
+    <image class="iconImg" mode="aspectFill" src="{{iconArray[2].checkImage}}"></image>
+    
+    </view>
+
+    <view class="set" id="set4">
+    <image class="iconImg" mode="aspectFill"  src="{{iconArray[3].checkImage}}"></image>
+    
+    </view>
+
+    <view class="set" id="set5">
+    <image class="iconImg" mode="aspectFill" src="{{iconArray[4].checkImage}}"></image>
+    
+    </view>
+
+    <view class="set" id="set6">
+    <image class="iconImg" mode="aspectFill" src="{{iconArray[5].checkImage}}"></image>
+   
+    </view>
+
+    <view class="set" id="set7">
+    <image class="iconImg" mode="aspectFill" src="{{iconArray[6].checkImage}}"></image>
+    
+    </view>
+
+    <view class="set" id="set8">
+    <image class="iconImg" mode="aspectFill" src="{{iconArray[7].checkImage}}"></image>
+    
+    </view>
+    
+  </view>
+</view>

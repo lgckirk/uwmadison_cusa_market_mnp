@@ -1,0 +1,17 @@
+/* pages/subjectPage/subjectPage.wxss */
+.navi{
+  
+  background: linear-gradient(
+      -60deg,
+      rgba(189, 30, 35, 0.8),
+      rgba(189, 30, 35, 1.0)
+    );
+
+  width:100%;
+  
+
+  display:flex;
+
+  padding-bottom: 0px;
+  margin:0;
+}

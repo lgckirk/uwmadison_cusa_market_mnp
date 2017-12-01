@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/page1/page1",
+    "pages/subjectPage/subjectPage",
+    "pages/rmp/rmp-home",
+    "pages/rmp/business",
+    "pages/2s/2s",
+    "pages/2s/fl/cf",
+    "pages/2s/wp",
+    "pages/2s/fl/po",
+    "pages/2s/fl/myl",
+    
+    "pages/index/self"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#F05050",
+    "navigationBarTextStyle": "#FFFFFF",
+    "navigationBarTitleText": "麦屯小程序",
+    "backgroundColor": "#FFFFFF",
+    "backgroundTextColor": "#FFFFFF",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": "50"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/index/image/tabbar.png",
+        "selectedIconPath": "pages/index/image/tabbar.png"
+      },
+      {
+        "pagePath": "pages/index/self",
+        "text": "我的商品",
+        "iconPath": "pages/index/image/tabbar个人.png",
+        "selectedIconPath": "pages/index/image/tabbar个人.png"
+      },
+      
+      {
+        "pagePath": "pages/subjectPage/subjectPage",
+        "text": "关于CUSA",
+        "iconPath": "pages/index/image/tabbar酷.png",
+        "selectedIconPath": "pages/index/image/tabbar酷.png"
+      }
+    ],
+    "color": "#ffffff",
+    "selectedColor": "#ffffff",
+    "backgroundColor": "#F05050",
+    "borderStyle": "white",
+    "position": "bottom"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

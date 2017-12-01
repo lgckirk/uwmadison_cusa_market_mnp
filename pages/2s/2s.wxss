@@ -1,0 +1,48 @@
+/* 2s.wxss */
+
+.iconImg{
+    width: 80px; 
+    height: 96px; 
+    background-color: #BD1E2D;
+    margin-bottom: 5px;
+
+    
+}
+
+.iconTitle{
+    
+    
+    display:block;
+    position: relative;
+    
+
+    -webkit-text-fill-color: white;
+    letter-spacing: 2px;
+    
+    font-size: 10px;
+   
+    
+}
+
+.navigate1{
+  
+  text-align: left;
+  justify-content: center;
+  background-color: #FFFFFF;
+  
+}
+
+.set{
+  display:  inline-block;
+  text-align: center;
+  width: 33%;
+  margin-top: 20px;
+  vertical-align:top;
+  
+}
+
+.title{
+  
+  width:100%;
+
+}

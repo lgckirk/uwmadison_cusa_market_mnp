@@ -1,0 +1,46 @@
+/* business.wxss */
+.navigate{
+  
+
+  background-color: #BD1E2D;
+  
+    
+}
+
+
+
+.one{
+  width: 10%;
+  height: 200px;
+  text-align: left;
+  background-color: #BD1E2D;
+  
+}
+
+.backImgSet{
+ 
+  background-color: #BD1E2D;
+  display:flex;
+  flex-direction: column;
+  align-items:left;
+
+}
+
+.backImg{
+  
+  position: absolute;
+  background-color: #BD1E2D;
+  padding-top: 40px;
+
+}
+
+.frontImg
+{
+  position: relative;
+  width: 40px; 
+  height: 24px;
+  top: 30%;
+  left: 30%;
+}
+
+

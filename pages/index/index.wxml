@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="navigate">
+  <view class="icon">
+
+    <image class="bigTitle" mode="widthFix" src="{{bigTitle}}"></image>
+
+
+    <view class="row1">
+    <view class ="set"  bindtap="jumpTo2S">
+    <image class="iconImg" src="{{iconArray[0].checkImage}}"></image>
+    <text class="iconTitle" >{{iconArray[0].checkName}}</text>
+    </view>
+
+
+    <!--view class ="set" id="set2" bindtap="jumpToRMP">
+    <image class="iconImg"  src="{{iconArray[1].checkImage}}"></image>
+    <text class="iconTitle" style="letter-spacing: 0px">{{iconArray[1].checkName}}</text>
+    </view-->
+
+    
+    <view class="set"  bindtap="jumpToPo">
+    <image class="iconImg" mode="{{item.mode}}"  src="{{iconArray[2].checkImage}}"></image>
+    <text class="iconTitle" >{{iconArray[2].checkName}}</text>
+    </view>
+
+    </view>
+
+    <view class="set" id="set3" bindtap="jumpToPo">
+    <image class="iconImg" id="img3" mode="{{item.mode}}"  src="{{iconArray[1].checkImage}}"></image>
+    <text class="iconTitle" id="txt3" >{{iconArray[1].checkName}}</text>
+    </view>
+
+    
+  </view>
+</view>
