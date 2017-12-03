@@ -41,7 +41,7 @@ Page({
         if (res.code) {
           //发起网络请求userID
           wx.request({
-            url: 'https://mnpserver.uwmadisoncusa.com/LoginExecute.php',
+            url: 'https://madishare.com/LoginExecute.php',
             data: {
               LoginCode: res.code
             },
@@ -99,7 +99,7 @@ Page({
 
     //测试PostProduct
     wx.request({
-      url: 'https://mnpserver.uwmadisoncusa.com/MarketExecute.php',
+      url: 'https://madishare.com/MarketExecute.php',
       data: {
         Action: "PostProduct",
         ProductOwner: this.data.userInfo,

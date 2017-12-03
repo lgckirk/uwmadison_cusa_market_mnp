@@ -36,7 +36,7 @@ Page({
 
     //测试GetProductImages
     wx.request({
-      url: 'https://mnpserver.uwmadisoncusa.com/MarketExecute.php',
+      url: 'https://madishare.com/MarketExecute.php',
       data: {
         Action: "GetProductImages",
         ProductId: app.globalData.iconArray[m].ProductId    //assume我们已经post过至少一次了

@@ -33,7 +33,7 @@ Page({
       console.log("in loop");
       if (app.globalData.userInfo){
             wx.request({
-              url: 'https://mnpserver.uwmadisoncusa.com/MarketExecute.php',
+              url: 'https://madishare.com/MarketExecute.php',
               data: {
                 Action: "GetProductsByUserId",
                 UserId: app.globalData.userInfo
@@ -119,7 +119,7 @@ Page({
     var page = this;
     //测试GetProductsByUserId
     wx.request({
-      url: 'https://mnpserver.uwmadisoncusa.com/MarketExecute.php',
+      url: 'https://madishare.com/MarketExecute.php',
       data: {
         Action: "EndListing",
         ProductId: page.data.iconArray[num.target.id].ProductId
@@ -143,7 +143,7 @@ Page({
     var page = this;
     //测试GetProductsByUserId
     wx.request({
-      url: 'https://mnpserver.uwmadisoncusa.com/MarketExecute.php',
+      url: 'https://madishare.com/MarketExecute.php',
       data: {
         Action: "GetProductsByUserId",
         UserId: app.globalData.userInfo

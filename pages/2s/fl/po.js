@@ -221,7 +221,7 @@ Page({
     else{
     //测试PostProduct
     wx.request({
-      url: 'https://mnpserver.uwmadisoncusa.com/MarketExecute.php',
+      url: 'https://madishare.com/MarketExecute.php',
       data: {
         Action: "PostProduct",
         ProductOwner: this.data.userInfo,
@@ -286,7 +286,7 @@ Page({
         var tempFilePaths = res.tempFilePaths
         console.log(tempFilePaths[0])
         wx.uploadFile({
-          url: 'https://mnpserver.uwmadisoncusa.com/MarketExecute.php',
+          url: 'https://madishare.com/MarketExecute.php',
           filePath: tempFilePaths[0],
           name: 'ProductImage',
           formData: {

@@ -39,7 +39,7 @@ Page({
     //测试GetProductsByType
     var page = this;
     wx.request({
-      url: 'https://mnpserver.uwmadisoncusa.com/MarketExecute.php',
+      url: 'https://madishare.com/MarketExecute.php',
       data: {
         Action: "GetProductsByType",
          TypeId: this.data.typeID
@@ -104,7 +104,7 @@ Page({
     //测试GetProductsByType
     var page = this;
     wx.request({
-      url: 'https://mnpserver.uwmadisoncusa.com/MarketExecute.php',
+      url: 'https://madishare.com/MarketExecute.php',
       data: {
         Action: "GetProductsByType",
         TypeId: this.data.typeID
@@ -169,7 +169,7 @@ Page({
     //测试GetProductsByType
     var page = this;
     wx.request({
-      url: 'https://mnpserver.uwmadisoncusa.com/MarketExecute.php',
+      url: 'https://madishare.com/MarketExecute.php',
       data: {
         Action: "GetProductsByType",
         TypeId: this.data.typeID
