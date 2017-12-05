@@ -15,7 +15,7 @@
   <view class="row">
 
      <image id="{{index}}" class="soldout" mode="aspectFit" src="image/soldout.png" bindtap="offProduct"></image>
-      <view class="textB"  bindtap="jumpTowp" >
+      <view class="textB"  bindtap="jumpTowp" id="{{index}}">
         <text class="iconText" id="{{index}}">{{item.ProductName}} </text>
       </view>
   </view>

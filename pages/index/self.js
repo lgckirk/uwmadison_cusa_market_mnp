@@ -107,6 +107,7 @@ Page({
 
 
   jumpTowp: function (num) {
+    console.log(num);
     var app = getApp();
     app.globalData.iconArray = this.data.iconArray;
 
