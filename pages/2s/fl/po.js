@@ -1,133 +1,132 @@
 // po.js
 Page({
-
   /**
    * 页面的初始数据
    */
-  data: {
-      name:null,
-      type:2,
-      price:0,
-      des:null,
-      userInfo:0,
-      img:'/pages/2s/img/mai-01.png',
-      img1: '/pages/2s/img/中-01.png',
-      img2: '/pages/2s/img/po-01.png',
-      productId: 0,
-      wx: null,
-      phone: null,
-      email: null,
-      contact: null,
+   data: {
+    name:null,
+    type:2,
+    price:0,
+    des:null,
+    userInfo:0,
+    img:'/pages/2s/img/mai-01.png',
+    img1: '/pages/2s/img/中-01.png',
+    img2: '/pages/2s/img/po-01.png',
+    productId: 0,
+    wx: null,
+    phone: null,
+    email: null,
+    contact: null,
+    imageBuffer: null,
+    titleImg:'/pages/2s/img/poTitle-01.png',
 
-      titleImg:'/pages/2s/img/poTitle-01.png',
+    index: 0,
+    array: [
+    {
+      typeId:2,
+      name:'家具'
+    },
 
-      index: 0,
-      array: [
-        {
-          typeId:2,
-          name:'家具'
-        },
+    {
+      typeId: 3,
+      name: '电子产品'
+    },
 
-        {
-          typeId: 3,
-          name: '电子产品'
-        },
+    {
+      typeId: 4,
+      name: '学术'
+    },
 
-        {
-          typeId: 4,
-          name: '学术'
-        },
+    {
+      typeId: 5,
+      name: '衣橱衣服'
+    },
 
-        {
-          typeId: 5,
-          name: '衣橱衣服'
-        },
+    {
+      typeId: 6,
+      name: '租房'
+    },
 
-        {
-          typeId: 6,
-          name: '租房'
-        },
+    {
+      typeId: 7,
+      name: '交通用品'
+    },
 
-        {
-          typeId: 7,
-          name: '交通用品'
-        },
+    {
+      typeId: 8,
+      name: '化妆品'
+    },
 
-        {
-          typeId: 8,
-          name: '化妆品'
-        },
-
-        {
-          typeId: 1,
-          name: '其他'
-        },
+    {
+      typeId: 1,
+      name: '其他'
+    },
 
 
-        
-        ],
-      
-      
+
+    ],
+
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
-  },
+   onLoad: function (options) {
+
+   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
-  },
+   onReady: function () {
+
+   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
-  },
+   onShow: function () {
+
+   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
-  },
+   onHide: function () {
+
+   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
-  },
+   onUnload: function () {
+
+   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  wx.stopPullDownRefresh();
+   onPullDownRefresh: function () {
+    wx.stopPullDownRefresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
-  },
+   onReachBottom: function () {
+
+   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
-  },
+   onShareAppMessage: function () {
+
+   },
 
 
-  inputName: function(e){
+   inputName: function(e){
     this.setData({
       name: String(e.detail.value)
     })
@@ -191,10 +190,30 @@ Page({
     console.log(this.data.email);
   },
 
-
+  uploadMultiple: function(imageArray, productId, success, failure){
+    var page = this;
+    if (!imageArray || imageArray.length<=0){
+      success();
+      return;
+    }
+    wx.uploadFile({
+      url: 'https://madishare.com/MarketExecute.php',
+      filePath: imageArray.pop(),
+      name: 'ProductImage',
+      formData: {
+        "Action": 'PostProductImages',
+            "ProductId": productId    //assume我们已经post过至少一次了
+          },
+          success: function (res) {
+            if (JSON.parse(res.data).ErrorCode == 1) {
+              page.uploadMultiple(imageArray, productId, success, failure);
+            } else {
+              failure();
+            }
+          }
+        });
+  },
   poProduct:function(){
-    
-   
     //get userInfo
     var app = getApp();
 
@@ -240,96 +259,55 @@ Page({
         "content-type": "application/x-www-form-urlencoded",
       },
       success: function (res) {
-        console.log(res.data.ProductId)
-        console.log("RES IS");
-        console.log(res);
-        
-        if (res.data.ErrorCode==1){
+        console.log(res.data.ProductId);
+        var success = function(){
+
+          setTimeout(function(){ 
+           wx.switchTab({
+            url: "/pages/self/self"});}, 1500);
           wx.showToast({
             title: '你成功啦',
             icon: 'success',
             duration: 2000
-          })
-        page.setData({
-            productId: parseInt(res.data.ProductId)
-        })
-        console.log(res.data)
-        console.log(page.data.productId)
+          });
 
-
-        }
-
-        else{
+        };
+        var failure =  function(){
           wx.showToast({
-            title: '你失败了',
+            title: '你失败了 是不是没写一些东西呀',
             icon: 'loading',
             duration: 2000
           })
+        };
+        if (res.data.ErrorCode==1){
+          page.uploadMultiple(page.data.imageBuffer, res.data.ProductId, success, failure);  
+        } else{
+          failure();
         }
       }
     })
-
-
-    
-
-    }
-  },
-
-  poImg:function(){
-    var page = this
-    if (page.data.productId != 0){
-    //测试PostProductImages
-    wx.chooseImage({
-
-      
-      success: function (res) {
-        var tempFilePaths = res.tempFilePaths
-        console.log(tempFilePaths[0])
-        wx.uploadFile({
-          url: 'https://madishare.com/MarketExecute.php',
-          filePath: tempFilePaths[0],
-          name: 'ProductImage',
-          formData: {
-            "Action": 'PostProductImages',
-            "ProductId": page.data.productId    //assume我们已经post过至少一次了
-          },
-          success: function (res) {
-            console.log(res.data)
-            console.log(JSON.parse(res.data).ErrorCode)
-            if (JSON.parse(res.data).ErrorCode == 1) {
-              wx.showToast({
-                title: '你成功啦',
-                icon: 'success',
-                duration: 2000
-              })
-              
-            }
-
-            else {
-              wx.showToast({
-                title: '你失败了 是不是没写一些东西呀',
-                icon: 'loading',
-                duration: 2000
-              })
-            }
-            
-          }
-        })
-      }
-    })
-    }
-  },
-
-  respondType: function (e) {
-    console.log(e)
-    console.log(this.data.array[e.detail.value].typeId)
-    this.setData({
-      index: e.detail.value,
-      type: this.data.array[e.detail.value].typeId
-    })
-    console.log(this.data.type)
   }
+},
 
-  
+chooseImg:function(){
+  var page = this;
+  wx.chooseImage({
+    success: function (res) {
+      page.setData({'imageBuffer': res.tempFilePaths});
+    }
+  });
+},
+
+respondType: function (e) {
+  console.log(e)
+  console.log(this.data.array[e.detail.value].typeId)
+  this.setData({
+    index: e.detail.value,
+    type: this.data.array[e.detail.value].typeId
+  })
+  console.log(this.data.type)
+}
+
+
 
 })

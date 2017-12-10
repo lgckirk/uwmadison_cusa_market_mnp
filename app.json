@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/self/self",
     "pages/logs/logs",
     "pages/page1/page1",
     "pages/subjectPage/subjectPage",
@@ -10,9 +11,7 @@
     "pages/2s/fl/cf",
     "pages/2s/wp",
     "pages/2s/fl/po",
-    "pages/2s/fl/myl",
-    
-    "pages/index/self"
+    "pages/2s/fl/myl"
   ],
   "window": {
     "navigationBarBackgroundColor": "#F05050",
@@ -32,7 +31,7 @@
         "selectedIconPath": "pages/index/image/tabbar.png"
       },
       {
-        "pagePath": "pages/index/self",
+        "pagePath": "pages/self/self",
         "text": "我的商品",
         "iconPath": "pages/index/image/tabbar个人.png",
         "selectedIconPath": "pages/index/image/tabbar个人.png"

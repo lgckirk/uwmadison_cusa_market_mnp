@@ -2,9 +2,6 @@
 <loading hidden="{{loadingHidden}}">
         加载中...
 </loading>
-
-
-
 <view class="title"> 我的商品
 </view>
 

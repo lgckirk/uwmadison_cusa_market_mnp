@@ -33,9 +33,9 @@
 <textarea  class="ta" placeholder="物品描述" maxlength="500" bindblur="inputDes" bindconfirm="inputDes"  placeholder-style=" font-size: 10px; text-align:center; color: #F05050;" focus="{{focus}}"/>
 
 <view class="icon">
-<image class="img" src="{{img}} " mode="widthFix" bindtap="poProduct"></image>
+<image class="img" src="{{img}} " mode="widthFix" bindtap="chooseImg"></image>
 <image class="img" src="{{img1}} " mode="widthFix" ></image>
-<image class="img" src="{{img2}} " mode="widthFix" bindtap="poImg"></image>
+<image class="img" src="{{img2}} " mode="widthFix" bindtap="poProduct"></image>
 </view>
 
 <text class="title" id="end">然后就搞定啦！可以返回啦！</text>

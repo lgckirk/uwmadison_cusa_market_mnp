@@ -70,40 +70,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
    onShow: function () {
-    var app = getApp();
-    //测试GetProductsByType
-    var page = this;
-    //测试GetProductsByUserId
-    var userCheck = setInterval(function(){ 
-      console.log("in loop");
-      if (app.globalData.userInfo){
-        wx.request({
-          url: 'https://madishare.com/MarketExecute.php',
-          data: {
-            Action: "GetProductsByUserId",
-            UserId: app.globalData.userInfo
-          },
-          method: "POST",
-          header: {
-            "content-type": "application/x-www-form-urlencoded",
-          },
-          success: function(res){
-            console.log(res);
-            page.setData({
-              iconArray: res.data.Products
-            })
-            var spaces = [];
-            for (var i=0; i< 5 - res.data.Products.length;i++){
-              spaces.push("1");
-            }
-            page.setData({spaces: spaces});
-            page.setData({loadingHidden: true});
-          } 
-        });
-        clearInterval(userCheck);
-      }   
-    }, 100);
-  },
+
+   },
 
   /**
    * 生命周期函数--监听页面隐藏
