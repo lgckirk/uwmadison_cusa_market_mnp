@@ -1,4 +1,4 @@
-// 2s.js
+// 2s.js/////
 Page({
 
   /**
@@ -43,7 +43,7 @@ Page({
             "content-type": "application/x-www-form-urlencoded",
           },
           success: function(res){
-            console.log(res);
+            
             page.setData({
               iconArray: res.data.Products
             })
@@ -107,7 +107,7 @@ Page({
 
 
    jumpTowp: function (num) {
-    console.log(num);
+   
     var app = getApp();
     app.globalData.iconArray = this.data.iconArray;
 

@@ -9,9 +9,9 @@ Page({
     price:0,
     des:null,
     userInfo:0,
-    img:'/pages/2s/img/mai-01.png',
+    img:'/pages/2s/img/tu-01.png',
     img1: '/pages/2s/img/中-01.png',
-    img2: '/pages/2s/img/po-01.png',
+    img2: '/pages/2s/img/mai-01.png',
     productId: 0,
     wx: null,
     phone: null,
@@ -131,7 +131,7 @@ Page({
       name: String(e.detail.value)
     })
 
-    console.log(this.data.name);
+    
   },
 
   inputType: function (e) {
@@ -139,7 +139,7 @@ Page({
       type: parseInt(e.detail.value)
     })
 
-    console.log(this.data.type);
+   
   },
 
   inputPrice: function (e) {
@@ -147,7 +147,7 @@ Page({
       price: parseInt(e.detail.value)
     })
 
-    console.log(this.data.price);
+    
   },
 
   inputDes: function (e) {
@@ -155,7 +155,7 @@ Page({
       des: String(e.detail.value)
     })
 
-    console.log(this.data.des);
+    
   },
 
   inputWx: function (e) {
@@ -163,7 +163,7 @@ Page({
       wx: String(e.detail.value)
     })
 
-    console.log(this.data.wx);
+   
   },
 
   inputContact: function (e) {
@@ -171,7 +171,7 @@ Page({
       contact: String(e.detail.value)
     })
 
-    console.log(this.data.contact);
+    
   },
 
   inputPhone: function (e) {
@@ -179,7 +179,7 @@ Page({
       phone: String(e.detail.value)
     })
 
-    console.log(this.data.phone);
+   
   },
 
   inputEmail: function (e) {
@@ -187,23 +187,29 @@ Page({
       email: String(e.detail.value)
     })
 
-    console.log(this.data.email);
+    
   },
 
+  //多次上传图片
   uploadMultiple: function(imageArray, productId, success, failure){
     var page = this;
+    //如果没有图片需要上传 成功
     if (!imageArray || imageArray.length<=0){
       success();
       return;
     }
+
+    //如果有需要上传的图片
+    //则一张一张的上传
     wx.uploadFile({
       url: 'https://madishare.com/MarketExecute.php',
       filePath: imageArray.pop(),
       name: 'ProductImage',
       formData: {
         "Action": 'PostProductImages',
-            "ProductId": productId    //assume我们已经post过至少一次了
+            "ProductId": productId   
           },
+          //若成功上传一张图片 进行recursion
           success: function (res) {
             if (JSON.parse(res.data).ErrorCode == 1) {
               page.uploadMultiple(imageArray, productId, success, failure);
@@ -211,8 +217,11 @@ Page({
               failure();
             }
           }
-        });
+    });
   },
+
+
+
   poProduct:function(){
     //get userInfo
     var app = getApp();
@@ -224,11 +233,9 @@ Page({
     var page = this
     
     var go =(this.data.name!=null)&&(this.data.des!=null)&&(this.data.type!=0)&&(this.data.price!=0);
-    console.log("填写情况"+go);
-    console.log("Type is " + this.data.type);
-    console.log("name is " + this.data.name);
-    console.log("descrip is " + this.data.des);
-    console.log("price is " + this.data.price);
+    
+
+    //如果任何数据填写错误 回馈失败
     if(go==false)
     {
       wx.showToast({
@@ -237,8 +244,12 @@ Page({
         duration: 2000
       })
     }
+
+
+    //如果数据填写成功
     else{
-    //测试PostProduct
+    
+    //Post Product 指令
     wx.request({
       url: 'https://madishare.com/MarketExecute.php',
       data: {
@@ -259,7 +270,8 @@ Page({
         "content-type": "application/x-www-form-urlencoded",
       },
       success: function (res) {
-        console.log(res.data.ProductId);
+      
+        //如果成功上传
         var success = function(){
 
           setTimeout(function(){ 
@@ -272,6 +284,8 @@ Page({
           });
 
         };
+
+        //如果上传失败
         var failure =  function(){
           wx.showToast({
             title: '你失败了 是不是没写一些东西呀',
@@ -279,9 +293,15 @@ Page({
             duration: 2000
           })
         };
+
+
+        //根据结果进行反馈
         if (res.data.ErrorCode==1){
+          //成功上传信息 开始进行图片上传
+          //使用imageBuffer
           page.uploadMultiple(page.data.imageBuffer, res.data.ProductId, success, failure);  
         } else{
+          //失败
           failure();
         }
       }
@@ -289,6 +309,8 @@ Page({
   }
 },
 
+//选择多张图片进行上传
+//将图片保存在imageBuffer
 chooseImg:function(){
   var page = this;
   wx.chooseImage({
@@ -299,13 +321,12 @@ chooseImg:function(){
 },
 
 respondType: function (e) {
-  console.log(e)
-  console.log(this.data.array[e.detail.value].typeId)
+ 
   this.setData({
     index: e.detail.value,
     type: this.data.array[e.detail.value].typeId
   })
-  console.log(this.data.type)
+  
 }
 
 

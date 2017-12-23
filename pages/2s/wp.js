@@ -82,21 +82,26 @@ Page({
     var e = '木有';
     var Name = '木有';
     var phone = '木有';
-    if (product.ContactName!=undefined){
-      Name = product.ContactName;
+
+  
+
+
+    if (product.ProductContact.ContactName!=null){
+      Name = product.ProductContact.ContactName;
     }
-    if (product.ContactEmail!= undefined) {
-      e = product.ContactEmail;
+    if (product.ProductContact.ContactEmail!= null) {
+      e = product.ProductContact.ContactEmail;
     }
-    if (product.ContactPhone!= undefined) {
-      phone = product.ContactPhone;
+    if (product.ProductContact.ContactPhone!= null) {
+      phone = product.ProductContact.ContactPhone;
     }
-    if (product.ContactWechat!= undefined) {
-      wx = product.ContactWechat;
+    if (product.ProductContact.ContactWechat!= null) {
+      wxh = product.ProductContact.ContactWechat;
     }
 
+  
     var info = '姓名:'+Name+' 微信：'+wxh+' 邮箱：'+e+' 手机：'+phone;
-    console.log(info);
+ 
 
     wx.showModal({
       title: '要不要联系我？'+this.data.info,
