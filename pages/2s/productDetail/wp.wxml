@@ -1,0 +1,29 @@
+<!-- 物品详细信息页面 -->
+<view class="body">
+  <view class="navi">
+    <swiper indicator-dots="true"
+      autoplay="true" 
+      interval="5000" 
+      duration="1000"
+      indicator-color="rgba(241,173,153,1)"
+      indicator-active-color="rgba(189,30,45,1)"
+      class="swiper">
+      <block wx:for="{{productImages}}">
+        <swiper-item>
+          <image src="{{item}}" mode="aspectFit" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view class="titleB">
+      <text class="title">名字: {{product.ProductName}}</text>
+      <text class="price">价格: ${{product.ProductPrice}}</text>
+    </view>
+
+    <view class="introB"> 
+      <text class="intro">{{product.ProductDescription}}</text>
+    </view>
+
+    <image class="img" src="/images/usedItemMarket/buy/contact.png" mode="aspectFit" bindtap="popUp"></image>
+  </view>
+</view>

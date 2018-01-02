@@ -1,0 +1,21 @@
+<!--myProduct.wxml-->
+<loading hidden="{{loadingHidden}}">
+        加载中...
+</loading>
+<view class="title">我的商品</view>
+
+
+
+<view class="items"  wx:for="{{products}}">
+  <view class="row">
+      <view class="flexfix">
+        <image id="{{index}}" class="soldout" mode="aspectFit" src="/images/myProduct/endListing.png" bindtap="endListing"></image>
+      </view>
+      <view class="textB"  bindtap="jumpToProductDetail" id="{{index}}">
+        <text class="iconText" id="{{index}}">{{item.ProductName}}</text>
+      </view>
+  </view>
+</view>
+<view class="last" bindtap="jumpToPostProduct">
+  继续添加商品⊕
+</view>

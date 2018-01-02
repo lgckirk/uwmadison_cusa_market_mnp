@@ -1,4 +1,0 @@
-<!--page1.wxml-->
-<button bindtap="changeText">{{text}}</button>
-<button bindtap="jump">1</button>
-<text>{{checkArray}}</text>
