@@ -186,12 +186,18 @@ Page({
     var app = getApp();
     var page = this;
 
+    // clear error message
+    page.setData({
+      error: ""
+    });
+
+    // input validation
     var err = "";
     if (page.data.name == null || page.data.des == null ||
         page.data.name == "" || page.data.des == "" ||
         page.data.price == null)
     {
-      err = "商品名称，描述，价格为必填。价格需为数字。";
+      err = "商品名称，描述，价格为必填。价格最多包含2位小数。";
     }
     else if (page.data.price < 0)
     {
@@ -215,9 +221,9 @@ Page({
     {
       err = "联系人电话不能超过15个字符。";
     }
-    else if (String(page.data.price).length > 7)
+    else if (String(page.data.price).length > 10)
     {
-      err = "物品价格超过限额。";
+      err = "物品价格过大。";
     }
     
     //如果任何数据填写错误 回馈失败
@@ -269,10 +275,7 @@ Page({
             }, 1500);
 
             // hide loading box
-            page.setData({
-              error: "",
-              hideSubmission: true
-            });
+            page.setData({ hideSubmission: true });
 
             // show toast
             wx.showToast({
@@ -286,7 +289,7 @@ Page({
           var failure =  function(){
             // hide loading box
             page.setData({
-              error: "",
+              error: "好像遇到了点问题。请再试一次。",
               hideSubmission: true
             });
             // show toast
@@ -307,9 +310,10 @@ Page({
           }
         },
 
+        // if for any reason failed, notify user
         fail: function() {
           page.setData({
-            error: "",
+            error: "好像遇到了点问题。请再试一次。",
             hideSubmission: true
           });
           wx.showToast({
