@@ -163,6 +163,7 @@ Page({
 
   /* 执行Post */
   poProduct:function(){
+    console.error(66666);
     var app = getApp();
     var page = this;
 
@@ -182,6 +183,22 @@ Page({
         page.data.email == "null" || page.data.phone == "null")
     {
       err = "物品信息包含非法字符，请检查一下。";
+    }
+    else if (page.data.name.length > 11)
+    {
+      err = "物品名称不能超过11个字符。";
+    }
+    else if (page.data.contact != null && page.data.contact.length > 15)
+    {
+      err = "联系人名字不能超过15个字符。";
+    }
+    else if (page.data.phone != null && page.data.phone.length > 15)
+    {
+      err = "联系人电话不能超过15个字符。";
+    }
+    else if (String(page.data.price).length > 7)
+    {
+      err = "物品价格超过限额。";
     }
     
     //如果任何数据填写错误 回馈失败
@@ -221,16 +238,22 @@ Page({
           // 上传成功的函数
           var success = function(){
             setTimeout(function(){
-              // hide loading box
-              page.setData({
-                error: "",
-                hideSubmission: true
-              });
               //redirect
               wx.switchTab({
-                url: "/pages/myProduct/myProduct"
+                url: "/pages/myProduct/myProduct",
+                success: function(e) {
+                  var page = getCurrentPages().pop();
+                  if (page == undefined || page == null) return;
+                  page.onLoad(); 
+                }
               });
             }, 1500);
+
+            // hide loading box
+            page.setData({
+              error: "",
+              hideSubmission: true
+            });
 
             // show toast
             wx.showToast({

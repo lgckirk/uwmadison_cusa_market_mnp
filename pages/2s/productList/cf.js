@@ -1,5 +1,6 @@
 Page({
   data: {
+    ready: false,
     typeID: null,
     products: [],
   },
@@ -29,8 +30,8 @@ Page({
       },
       
       // TODO: need to handle the case in which there is no internet
-      // set product icon image for all products
       complete:function(){
+        // set product icon image for all products
         for (var i = 0; i < page.data.products.length; i++) {
           var p = page.data.products;
           if (p[i].ProductImages.length != 0) {
@@ -41,6 +42,11 @@ Page({
           }
           page.setData({products: p});
         }
+
+        // render page
+        page.setData({
+          ready: true
+        });
       }
      })
   },

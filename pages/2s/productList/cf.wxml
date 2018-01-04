@@ -1,14 +1,20 @@
 <!--这个是物品列表的页面-->
-<view class="items" wx:for="{{products}}">
-  <view class="block"  id="{{index}}" bindtap="jumpTowp" >
-    <image class="iconImg" id="{{index}}" mode="aspectFill"  src="{{item.icon}}" ></image>
-    <view class="textB" id="{{index}}">
-      <text class="iconText" id="{{index}}">{{item.ProductName}} </text>
-      <text class="price" id="{{index}}"> ${{item.ProductPrice}} </text>
+<block wx:if="{{ready}}">
+  <view class="items" wx:for="{{products}}">
+    <view class="block"  id="{{index}}" bindtap="jumpTowp" >
+      <image class="iconImg" id="{{index}}" mode="aspectFill"  src="{{item.icon}}" ></image>
+      <view class="textB" id="{{index}}">
+        <text class="iconText" id="{{index}}">{{item.ProductName}} </text>
+        <text class="price" id="{{index}}"> ${{item.ProductPrice}} </text>
+      </view>
     </view>
   </view>
-</view>
 
-<block wx:if="{{products.length == 0}}">
-  <image class="soldout" mode="widthFix" src="/images/usedItemMarket/buy/soldout.png"></image>
+  <block wx:if="{{products.length == 0}}">
+    <image class="soldout" mode="widthFix" src="/images/usedItemMarket/buy/soldout.png"></image>
+  </block>
 </block>
+
+<loading wx:else>
+  加载中
+</loading>

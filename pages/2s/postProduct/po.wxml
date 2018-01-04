@@ -42,7 +42,7 @@
 
   <text class="error">{{error}}</text>
 
-  <text class="title" id="end">然后就搞定啦！可以返回啦！</text>
+  <text class="title" id="end">然后就搞定啦！</text>
 
 </view>
 
