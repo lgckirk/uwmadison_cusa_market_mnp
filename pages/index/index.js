@@ -14,12 +14,17 @@ Page({
         checkName: '二手市场-卖'
       }
     ],
-    bigTitle: '/images/frontPage/title.png'
+    bigTitle: '/images/frontPage/title.png',
+    onGoing: true
   },
 
   onLoad: function () {
     var app = getApp();
+    var page = this;
     // get userID
+    page.setData({
+      onGoing: true
+    });
     wx.login({
       success: function (res) {
         if (res.code) {
@@ -35,6 +40,11 @@ Page({
             success: function (res) {
               console.warn(res.data);
               app.globalData.userInfo = parseInt(res.data.UserId);
+            },
+            complete: function() {
+              page.setData({
+                onGoing: false
+              });
             }
           })
         } else {
@@ -42,6 +52,15 @@ Page({
         }
       }
     });
+  },
+
+  onShow: function() {
+    var app = getApp();
+    var page = this;
+
+    if (!page.data.onGoing && !app.globalData.userInfo) {
+      page.onLoad();
+    }
   },
 
   jumpToMarket: function () {

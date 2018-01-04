@@ -276,7 +276,7 @@ Page({
 
             // show toast
             wx.showToast({
-              title: '你成功啦',
+              title: '提交成功',
               icon: 'success',
               duration: 1500
             });
@@ -291,7 +291,7 @@ Page({
             });
             // show toast
             wx.showToast({
-              title: '你失败了',
+              title: '失败',
               icon: 'loading',
               duration: 1500
             })
@@ -311,6 +311,11 @@ Page({
           page.setData({
             error: "",
             hideSubmission: true
+          });
+          wx.showToast({
+            title: '失败',
+            icon: 'loading',
+            duration: 1500
           });
         }
       })
