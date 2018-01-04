@@ -33,6 +33,7 @@ Page({
               "content-type": "application/x-www-form-urlencoded",
             },
             success: function (res) {
+              console.warn(res.data);
               app.globalData.userInfo = parseInt(res.data.UserId);
             }
           })

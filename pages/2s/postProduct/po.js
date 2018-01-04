@@ -13,6 +13,7 @@ Page({
     error: "",
     index: 0,
     hideSubmission: true,
+    loadingHidden: false,
     typeMap: [
       {
         typeId:2,
@@ -63,6 +64,25 @@ Page({
   },
 
   onShow: function () {
+    var app = getApp();
+    var page = this;
+    if (!app.globalData.userInfo) {
+      var userCheck = setInterval(function() {
+        if (app.globalData.userInfo) {
+          clearInterval(userCheck);
+          page.setData({
+            loadingHidden: true
+          });
+        }
+      }, 100);
+    }
+    else {
+      if (!page.data.loadingHidden) {
+        page.setData({
+          loadingHidden: true
+        });
+      }
+    }
   },
 
   onHide: function () {
@@ -302,6 +322,8 @@ Page({
   chooseImg:function(){
     var page = this;
     wx.chooseImage({
+      count: 4,
+      sizeType: ['compressed'],
       success: function (res) {
         page.setData({'imageBuffer': res.tempFilePaths});
       }
