@@ -144,7 +144,7 @@ Page({
     //则一张一张的上传
     wx.uploadFile({
       url: 'https://madishare.com/MarketExecute.php',
-      filePath: imageArray.pop(),
+      filePath: imageArray.shift(),
       name: 'ProductImage',
       formData: {
         "Action": 'PostProductImages',
@@ -163,7 +163,6 @@ Page({
 
   /* 执行Post */
   poProduct:function(){
-    console.error(66666);
     var app = getApp();
     var page = this;
 

@@ -11,7 +11,9 @@ Page({
 
     var userCheck = setInterval(function(){ 
       if (app.globalData.userInfo){
-        wx.request({
+        clearInterval(userCheck);
+        // request products
+        var request = wx.request({
           url: 'https://madishare.com/MarketExecute.php',
           data: {
             Action: "GetProductsByUserId",
@@ -25,10 +27,24 @@ Page({
             page.setData({
               products: res.data.Products
             })
-            page.setData({loadingHidden: true});
-          } 
+          },
+          complete: function() {
+            page.setData({ loadingHidden: true });
+          }
         });
-        clearInterval(userCheck);
+
+        // in case of error, loading screen doesn't go on forever
+        setTimeout(function() {
+          if (!page.data.loadingHidden) {
+            page.setData({ loadingHidden: true });
+            request.abort();
+            wx.showToast({
+              title: '网络超时',
+              icon: 'loading',
+              duration: 2000
+            });
+          }
+        }, 20000);
       }   
     }, 100);
   },
@@ -84,7 +100,12 @@ Page({
           products: p,
           loadingHidden: true
         });
-      }
+      },
+      fail: function() {
+        page.setData({
+          loadingHidden: true
+        });
+      } 
     }) 
   },
 

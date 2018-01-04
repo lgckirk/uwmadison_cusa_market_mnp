@@ -26,7 +26,6 @@ Page({
     var email = '木有';
     var name = '木有';
     var phone = '木有';
-    console.warn(contact.ContactName != "null")
 
     if (contact.ContactName != null
         && contact.ContactName != ""
