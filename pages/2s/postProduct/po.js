@@ -197,7 +197,7 @@ Page({
         page.data.name == "" || page.data.des == "" ||
         page.data.price == null)
     {
-      err = "商品名称，描述，价格为必填。价格最多包含2位小数。";
+      err = "商品名称，描述，价格为必填。价格应为数字。";
     }
     else if (page.data.price < 0)
     {
@@ -220,6 +220,9 @@ Page({
     else if (page.data.phone != null && page.data.phone.length > 15)
     {
       err = "联系人电话不能超过15个字符。";
+    }
+    else if (!/^(?!0+(?:\.0+)?$)(?:[1-9]\d*|0)(?:\.\d{1,2})?$/.test(page.data.price+""))     {
+      err = "价格应为数字且最多包含两位小数。";
     }
     else if (String(page.data.price).length > 10)
     {
