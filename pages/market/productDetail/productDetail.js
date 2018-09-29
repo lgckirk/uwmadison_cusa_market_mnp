@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
   data: {
     productImages: [],
@@ -9,7 +11,6 @@ Page({
   },
 
   onLoad: function(options){
-    var app = getApp();
     // retrieve this product
     var p = app.globalData.products[JSON.parse(options.index)];
     this.setData({
@@ -20,7 +21,6 @@ Page({
 
   /* pop up window for contact */
   popUp: function () {
-    var app = getApp();
     var contact = this.data.product.ProductContact;
     var wechat = '木有';
     var email = '木有';

@@ -1,0 +1,24 @@
+.market-icon-image {
+  width: 80px; 
+  height: 96px; 
+  background-color: #BD1E2D;
+  margin-bottom: 5px;
+}
+
+.market-container {
+  text-align: left;
+  justify-content: center;
+  background-color: #FFFFFF;
+}
+
+.market-set {
+  display:  inline-block;
+  text-align: center;
+  width: 33%;
+  margin-top: 20px;
+  vertical-align:top;
+}
+
+.market-title {
+  width:100%;
+}

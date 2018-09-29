@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
   data: {
     name:null,
@@ -57,14 +59,7 @@ Page({
     ],
   },
 
-  onLoad: function (options) {
-  },
-
-  onReady: function () {
-  },
-
   onShow: function () {
-    var app = getApp();
     var page = this;
     if (!app.globalData.userInfo) {
       var userCheck = setInterval(function() {
@@ -85,20 +80,8 @@ Page({
     }
   },
 
-  onHide: function () {
-  },
-
-  onUnload: function () {
-  },
-
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh();
-  },
-
-  onReachBottom: function () {
-  },
-
-  onShareAppMessage: function () {
   },
 
   inputName: function(e){
@@ -163,7 +146,7 @@ Page({
     //如果有需要上传的图片
     //则一张一张的上传
     wx.uploadFile({
-      url: 'https://madishare.com/MarketExecute.php',
+      url: app.getServerUrl('market'),
       filePath: imageArray.shift(),
       name: 'ProductImage',
       formData: {
@@ -183,7 +166,6 @@ Page({
 
   /* 执行Post */
   poProduct:function(){
-    var app = getApp();
     var page = this;
 
     // clear error message
@@ -244,7 +226,7 @@ Page({
       //Post Product 指令
       this.setData({hideSubmission: false});
       wx.request({
-        url: 'https://madishare.com/MarketExecute.php',
+        url: app.getServerUrl('market'),
         data: {
           Action: "PostProduct",
           ProductOwner: app.globalData.userInfo,

@@ -1,3 +1,6 @@
+import util from "../../lib/utility";
+const app = getApp();
+
 Page({
   data: {
     products: [],
@@ -6,7 +9,6 @@ Page({
   
   /* load products of currrent user */
   onLoad: function (options) {
-    var app = getApp();
     var page = this;
 
     var userCheck = setInterval(function(){ 
@@ -14,7 +16,7 @@ Page({
         clearInterval(userCheck);
         // request products
         var request = wx.request({
-          url: 'https://madishare.com/MarketExecute.php',
+          url: app.getServerUrl('market'),
           data: {
             Action: "GetProductsByUserId",
             UserId: app.globalData.userInfo
@@ -49,30 +51,11 @@ Page({
     }, 100);
   },
 
-  onReady: function () {
-  },
-
-  onShow: function () {
-  },
-
-  onHide: function () {
-  },
-
-  onUnload: function () {
-  },
-
-  onReachBottom: function () {
-  },
-
-  onShareAppMessage: function () {
-  },
-
   jumpToProductDetail: function(num) {
-    var app = getApp();
     // set session variable and redirect
     app.globalData.products = this.data.products;
     wx.navigateTo({
-      url: '/pages/2s/productDetail/wp?index=' + JSON.stringify(num.target.id)
+      url: '/pages/market/productDetail/productDetail?index=' + JSON.stringify(num.target.id)
     })
   },
 
@@ -81,9 +64,8 @@ Page({
     page.setData({
       loadingHidden: false
     });
-    var app = getApp();
     wx.request({
-      url: 'https://madishare.com/MarketExecute.php',
+      url: app.getServerUrl('market'),
       data: {
         Action: "EndListing",
         ProductId: page.data.products[num.target.id].ProductId
@@ -111,10 +93,9 @@ Page({
 
   /* refresh page: load again */
   onPullDownRefresh: function() {
-    var app = getApp();
     var page = this;
     wx.request({
-      url: 'https://madishare.com/MarketExecute.php',
+      url: app.getServerUrl('market'),
       data: {
         Action: "GetProductsByUserId",
         UserId: app.globalData.userInfo
@@ -136,9 +117,5 @@ Page({
     })
   },
 
-  jumpToPostProduct: function() {
-    wx.navigateTo({
-      url: '/pages/2s/postProduct/po'
-    });
-  }
+  jumpToPostProduct: util.getPageJumpCallback('/pages/market/postProduct/postProduct')
 })

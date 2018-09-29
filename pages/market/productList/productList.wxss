@@ -1,7 +1,4 @@
-/* cf.wxss */
-
-.items
-{
+.items {
   height: 30%;
   width: 96%;
   margin: auto;
@@ -11,11 +8,9 @@
   display:flex;
   flex-direction: column;
   align-items: flex-start;
-  
 }
 
-.navi
-{
+.navi {
   background-color: white; 
   width:100%;
   margin: auto;
@@ -24,12 +19,9 @@
   flex-direction: column;
   flex-wrap:wrap;
   align-content: flex-start;
-  
 }
 
-
-.block
-{  
+.block {
   margin: auto;
   height: 100%;
   overflow-y: hidden;
@@ -44,24 +36,20 @@
   justify-content: flex-start;
 }
 
-.textB{
+.textB {
   width:60%;
   display:flex;
   flex-direction: column;
-  
   justify-content: center;
-
 }
 
-.iconImg
-{
+.iconImg {
   height: 90%;
   border-radius: 5px;
   margin:2%;
 }
 
-.iconText
-{ 
+.iconText {
   margin-top: 2px;
   border-bottom: 2px solid #FF9965;
   margin-bottom: 10px;
@@ -70,8 +58,7 @@
   margin:5%;
 }
 
-.price
-{
+.price {
   font-size:120%;
   letter-spacing: 5px;
   color:rgba(255, 153, 102, 1.0);
@@ -82,6 +69,6 @@
   width: 100%;
 }
 
-page{
-    height: 100%;
+page {
+  height: 100%;
 }

@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
   data: {
     ready: false,
@@ -14,7 +16,7 @@ Page({
     // attempt to load products of this type
     var page = this;
     wx.request({
-      url: 'https://madishare.com/MarketExecute.php',
+      url: app.getServerUrl('market'),
       data: {
         Action: "GetProductsByType",
         TypeId: this.data.typeID
@@ -38,7 +40,7 @@ Page({
             p[i].icon = p[i].ProductImages[0];
           }
           else {
-            p[i].icon = "/images/usedItemMarket/buy/noPicture.png";
+            p[i].icon = "/images/usedItemMarket/buy/no_preview.png";
           }
           page.setData({products: p});
         }
@@ -48,19 +50,7 @@ Page({
           ready: true
         });
       }
-     })
-  },
-
-  onReady: function () {
-  },
-
-  onShow: function () {
-  },
-
-  onHide: function () {
-  },
-
-  onUnload: function () {
+    })
   },
 
   /* refresh page */
@@ -68,7 +58,7 @@ Page({
     // attempt to load products of this type
     var page = this;
     wx.request({
-      url: 'https://madishare.com/MarketExecute.php',
+      url: app.getServerUrl('market'),
       data: {
         Action: "GetProductsByType",
         TypeId: this.data.typeID
@@ -91,7 +81,7 @@ Page({
             p[i].icon = p[i].ProductImages[0];
           }
           else {
-            p[i].icon = "/images/usedItemMarket/buy/noPicture.png";
+            p[i].icon = "/images/usedItemMarket/buy/no_preview.png";
           }
           page.setData({ products: p });
         }
@@ -100,20 +90,15 @@ Page({
     wx.stopPullDownRefresh()
   },
 
-  onReachBottom: function () {
-  },
-
-  onShareAppMessage: function () {
-  },
- 
-  /* click event for each block of product */
-  jumpTowp: function(num) {
-    var app = getApp();
+  /**
+   * Jumpt to the product detail page of the product being clicked on.
+   * @param object event The tap event object
+   */
+  jumpToProductDetail: function(event) {
     app.globalData.products = this.data.products;
 
     wx.navigateTo({
-      url: '/pages/2s/productDetail/wp?index='+JSON.stringify(num.target.id)
+      url: '/pages/market/productDetail/productDetail?index='+JSON.stringify(event.target.id)
     })
   }
-
 })

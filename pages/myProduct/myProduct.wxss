@@ -1,11 +1,10 @@
-/* cf.wxss */
-
-page{
+page {
   height: 100%;
 }
-.last{
-    padding-top: 2%;
-    margin-top: 1%;
+
+.myproduct-add {
+  padding-top: 2%;
+  margin-top: 1%;
   border-top: 2px solid lightgrey;
   text-align: center;
   height: 4%;
@@ -13,8 +12,8 @@ page{
   letter-spacing: 0.16em;
   color:bisque;
 }
-.items
-{
+
+.items {
   background-color: lightyellow;
   border-top: 2px solid lightgrey;
   border-bottom: 2px solid lightgrey;
@@ -25,9 +24,9 @@ page{
   flex-direction: column;
   align-items: flex-start;
 }
-.space0
-{
-    margin-top: 1%;
+
+.space0 {
+  margin-top: 1%;
   height: 14%;
   background-color: white;
   border-top: 2px solid lightgrey;
@@ -37,11 +36,12 @@ page{
   flex-direction: column;
   align-items: flex-start; 
 }
-.space1{
-    margin-top: 1%;
+
+.space1 {
+  margin-top: 1%;
   height: 14%;
   background-color: lightyellow;
-    border-top: 2px solid lightgrey;
+  border-top: 2px solid lightgrey;
   border-bottom: 2px solid lightgrey;
   width: 100%;
   display:flex;
@@ -49,13 +49,7 @@ page{
   align-items: flex-start; 
 }
 
-.navi
-{
-/*  background: linear-gradient(
-      -60deg,
-      rgba(189, 30, 35, 0.8),
-      rgba(189, 30, 35, 1.0)
-    );*/
+.navi {
   background-color: white;
   height: 100%;
   width:100%;
@@ -65,8 +59,7 @@ page{
   align-content: flex-start;
 }
 
-
-.title{
+.myproduct-title {
   border-bottom:1.5px lightgrey solid;
   text-align: center;
   height: 10%;
@@ -76,7 +69,7 @@ page{
   color:bisque;
 }
 
-.row{
+.row {
   width: 60%;
   height: 100%;
   display:flex;
@@ -86,28 +79,21 @@ page{
   margin-top: 5%;
   marigin-left: 5%;
   margin-right: 5%;
-    justify-content: center;
-    padding: 0;
-
+  justify-content: center;
+  padding: 0;
 }
 
-.block
-{ 
-  /*border: 2px solid #FF9999;*/
+.block { 
   background-color: white;
   border-radius: 5px;
-
   width:100%;
-  
   text-align: center;
-  
   display:flex;
   flex-direction: row;
   justify-content: flex-start;
 }
 
-
-.off{
+.off {
   font-size: 70%;
   background-color: red;
   border-radius: 5px;
@@ -119,7 +105,7 @@ page{
   align-items: center;
 }
 
-.textB{
+.textB {
   width:100%;
   background-color: white;
   margin-right: 10%;
@@ -129,16 +115,13 @@ page{
   display:flex;
   flex-direction: row;
   justify-content: center;
-
 }
 
-.iconText{
+.iconText {
   margin: auto auto;
 }
 
-
-.price
-{
+.price {
   font-size:120%;
   letter-spacing: 5px;
   color:rgba(255, 143, 102, 1.0);
@@ -155,7 +138,7 @@ page{
   align-items: center;
 }
 
-.soldout{
+.soldout {
   background-color: white;
   height: 100%;
   width: 100%;

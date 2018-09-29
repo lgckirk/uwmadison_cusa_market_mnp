@@ -1,64 +1,34 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.index-icon-image {
+  width: 100px; 
+  height: 100px; 
+  background-color: #FFFFFF;
+  margin-bottom: 5px;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.index-icon-text {
+  position: relative;
+  -webkit-text-fill-color: #F1AD99;
+  letter-spacing: 2px;
+  font-size: 20px; 
 }
 
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
-.iconImg{
-    width: 100px; 
-    height: 100px; 
-    background-color: #FFFFFF;
-    margin-bottom: 5px;
-}
-
-.iconTitle{
-    position: relative;
-    -webkit-text-fill-color: #F1AD99;
-    letter-spacing: 2px;
-    
-    font-size: 20px; 
-}
-
-.icon{
+.index-container {
   display:flex;
   flex-direction:column;
   align-items:center;
-}
-
-
-.navigate{
-  
   background-color: #FFFFFF;
-  
 }
 
-.set{
+.index-set {
   text-align: center;
   width: 50%;
   margin-top: 20px;
   display:flex;
   flex-direction:column;
   align-items: center;
-
 }
 
-.row1{
+.index-market-row {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -66,21 +36,11 @@
   margin-bottom:20px;
 }
 
-.bigTitle{
+.index-title {
   width: 100%;
 }
 
-
-#set3{
-  width: 30%;
+#index-rmp-icon {
+  width: 73px; 
+  height: 73px;
 }
-
-#img3{
-  width: 60px; 
-  height: 60px;
-}
-
-#txt3{
-font-size: 15px;
-}
-

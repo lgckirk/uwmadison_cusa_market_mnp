@@ -1,7 +1,7 @@
 <!--这个是物品列表的页面-->
 <block wx:if="{{ready}}">
   <view class="items" wx:for="{{products}}">
-    <view class="block"  id="{{index}}" bindtap="jumpTowp" >
+    <view class="block"  id="{{index}}" bindtap="jumpToProductDetail" >
       <image class="iconImg" id="{{index}}" mode="aspectFill"  src="{{item.icon}}" ></image>
       <view class="textB" id="{{index}}">
         <text class="iconText" id="{{index}}">{{item.ProductName}} </text>

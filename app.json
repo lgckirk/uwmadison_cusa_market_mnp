@@ -3,10 +3,10 @@
     "pages/index/index",
     "pages/myProduct/myProduct",
     "pages/aboutUs/aboutUs",
-    "pages/2s/2s",
-    "pages/2s/productList/cf",
-    "pages/2s/productDetail/wp",
-    "pages/2s/postProduct/po"
+    "pages/market/market",
+    "pages/market/productList/productList",
+    "pages/market/productDetail/productDetail",
+    "pages/market/postProduct/postProduct"
   ],
   "window": {
     "navigationBarBackgroundColor": "#F05050",
@@ -22,21 +22,21 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/frontPage/tabbar.png",
-        "selectedIconPath": "images/frontPage/tabbar.png"
+        "iconPath": "images/frontPage/navbar_home.png",
+        "selectedIconPath": "images/frontPage/navbar_home.png"
       },
       {
         "pagePath": "pages/myProduct/myProduct",
         "text": "我的商品",
-        "iconPath": "images/frontPage/tabbar个人.png",
-        "selectedIconPath": "images/frontPage/tabbar个人.png"
+        "iconPath": "images/frontPage/navbar_个人.png",
+        "selectedIconPath": "images/frontPage/navbar_个人.png"
       },
       
       {
         "pagePath": "pages/aboutUs/aboutUs",
         "text": "关于CUSA",
-        "iconPath": "images/frontPage/tabbar酷.png",
-        "selectedIconPath": "images/frontPage/tabbar酷.png"
+        "iconPath": "images/frontPage/navbar_酷.png",
+        "selectedIconPath": "images/frontPage/navbar_酷.png"
       }
     ],
     "color": "#ffffff",

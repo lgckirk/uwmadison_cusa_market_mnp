@@ -3,7 +3,7 @@
   <view class="navi">
     <block wx:if="{{productImages.length==0}}">
       <view class="noImgBackGround">
-        <image src="/images/usedItemMarket/buy/noPicture.png" mode="center" class="slide-image"/>
+        <image src="/images/usedItemMarket/buy/no_preview.png" mode="center" class="slide-image"/>
       </view>
     </block> 
 

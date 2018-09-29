@@ -1,27 +1,24 @@
-/* po.wxss */
-
-.flex{
+.flex {
   display:flex;
   flex-direction:column;
   align-items: center;
   background-color: #FFFFFF;
 }
 
-.info{
+.info {
   margin-top:5%;
   font-size: 12px;
   color: #F05050;
-  
 }
 
-.icon{
+.icon {
   display:flex;
   flex-direction:row;
   justify-content: center;
   width:100%;
 }
 
-.in{
+.in {
   margin-top:1%;
   border:1px #F05050 solid;
   border-radius: 5px;
@@ -30,23 +27,20 @@
   color:#F05050;
   text-align:center;
   font-size:10px;
-
 }
 
-.ta{
+.ta {
   margin:2%;
   border:1px #F05050 solid;
   border-radius: 5px;
   background: white;
-
   width:300px;
   color:#F05050;
   text-align:left;
   font-size:10px;
-  
 }
 
-.img{
+.img {
  display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,28 +49,25 @@
   width:25%;
   margin-bottom:5%;
   border-radius:5px;
-
 }
 
-.title{
+.title {
   margin-top:5%;
   font-size: 12px;
   color: #F05050;
   font-weight: bold;
 }
 
-.titleImg{
-  
+.titleImg {
   width:100%;
-
 }
 
-#end{
+#end {
   font-size: 110%;
   margin-bottom: 10%;
 }
 
-.picker{
+.picker {
   border-radius: 5px;
   margin-top:1%;
   border:1px #F05050 solid;
