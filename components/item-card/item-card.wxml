@@ -1,0 +1,13 @@
+<view class="card card-wrapper card-shadow">
+    <div class="card-container">
+        <div class="card-img-container">
+                <image class="card-img" src="{{product.productImages[0]}}" mode="widthFix" lazy-load="true">
+            </image>
+        </div>
+
+        <div class="card-details-container">
+            <h3 class="card-title">{{product.productName}}</h3>
+            <span class="card-time"> {{product.dateCreatedRelative}} </span>
+        </div>
+    </div>
+</view>

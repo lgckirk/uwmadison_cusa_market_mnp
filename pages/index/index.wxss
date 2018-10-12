@@ -1,46 +1,5 @@
-.index-icon-image {
-  width: 100px; 
-  height: 100px; 
-  background-color: #FFFFFF;
-  margin-bottom: 5px;
-}
-
-.index-icon-text {
-  position: relative;
-  -webkit-text-fill-color: #F1AD99;
-  letter-spacing: 2px;
-  font-size: 20px; 
-}
-
-.index-container {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  background-color: #FFFFFF;
-}
-
-.index-set {
-  text-align: center;
-  width: 50%;
-  margin-top: 20px;
-  display:flex;
-  flex-direction:column;
-  align-items: center;
-}
-
-.index-market-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 90%;
-  margin-bottom:20px;
-}
-
-.index-title {
-  width: 100%;
-}
-
-#index-rmp-icon {
-  width: 73px; 
-  height: 73px;
+#index-waterfall {
+    
+    display: block;
+	margin-top: 25rpx;
 }
