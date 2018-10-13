@@ -1,5 +1,6 @@
 #index-waterfall {
     
     display: block;
-	margin-top: 25rpx;
+	padding-top: 25rpx;
+  background-color: #F2F3F4;
 }
