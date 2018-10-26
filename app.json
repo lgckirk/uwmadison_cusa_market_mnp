@@ -9,11 +9,11 @@
     "pages/market/postProduct/postProduct"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#F05050",
-    "navigationBarTextStyle": "#FFFFFF",
-    "navigationBarTitleText": "麦屯小程序",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "麦买卖",
     "backgroundColor": "#FFFFFF",
-    "backgroundTextColor": "#FFFFFF",
+    "backgroundTextStyle": "dark",
     "enablePullDownRefresh": true,
     "onReachBottomDistance": "50"
   },
@@ -22,26 +22,25 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/frontPage/navbar_home.png",
-        "selectedIconPath": "images/frontPage/navbar_home.png"
+        "iconPath": "images/frontPage/home.png",
+        "selectedIconPath": "images/frontPage/home.png"
+      },
+      {
+        "pagePath": "pages/market/postProduct/postProduct",
+        "text": "发布",
+        "iconPath": "images/frontPage/post.png",
+        "selectedIconPath": "images/frontPage/post.png"
       },
       {
         "pagePath": "pages/myProduct/myProduct",
         "text": "我的商品",
-        "iconPath": "images/frontPage/navbar_个人.png",
-        "selectedIconPath": "images/frontPage/navbar_个人.png"
-      },
-      
-      {
-        "pagePath": "pages/aboutUs/aboutUs",
-        "text": "关于CUSA",
-        "iconPath": "images/frontPage/navbar_酷.png",
-        "selectedIconPath": "images/frontPage/navbar_酷.png"
+        "iconPath": "images/frontPage/mine.png",
+        "selectedIconPath": "images/frontPage/mine.png"
       }
     ],
-    "color": "#ffffff",
-    "selectedColor": "#ffffff",
-    "backgroundColor": "#F05050",
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#FFFFFF",
     "borderStyle": "white",
     "position": "bottom"
   },

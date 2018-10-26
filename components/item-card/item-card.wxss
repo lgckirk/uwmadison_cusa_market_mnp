@@ -4,6 +4,7 @@
     overflow: hidden;
     border-radius: 7rpx;
     margin-bottom: 20rpx;
+    background-color: #FFFFFF;
 }
 
 .card image.card-img {
