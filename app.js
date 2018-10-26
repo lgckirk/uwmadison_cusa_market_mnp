@@ -11,10 +11,18 @@ App({
    * @return String url in interest
    */
   getServerUrl: function(purpose) {
-    var purposeToUrl = {
-      login: "https://madishare.com/LoginExecute.php",
-      market: "https://madishare.com/MarketExecute.php"  
-    };
+      
+    // @submit: madishare down, temporary change
+      var purposeToUrl = {
+        login: "https://madishare.com/LoginExecute.php",
+        market: "http://testcusa-env.afejb3cmmd.us-east-2.elasticbeanstalk.com/MarketExecute.php"  
+      };
+
+     // var purposeToUrl = {
+     //   login: "https://madishare.com/LoginExecute.php",
+     //   market: "https://madishare.com/MarketExecute.php"  
+     // };
+
     if (!purposeToUrl[purpose]) {
       console.error("App.getServerUrl('" + purpose + "'): invoked with invalid argument");
       return null;

@@ -1,21 +1,2 @@
-<!--index.wxml-->
-  <view class="index-container">
-    <image class="index-title" mode="widthFix" src="/images/frontPage/title.png"></image>
-
-    <view class="index-market-row">
-      <view class ="index-set" bindtap="jumpToMarket">
-        <image class="index-icon-image" src="/images/frontPage/market_buy.png"></image>
-        <text class="index-icon-text">二手市场-买</text>
-      </view>
-    
-      <view class="index-set" bindtap="jumpToPostProduct">
-        <image class="index-icon-image" src="/images/frontPage/market_sell.png"></image>
-        <text class="index-icon-text">二手市场-卖</text>
-      </view>
-    </view>
-
-    <view class="index-set">
-      <image class="index-icon-image" id="index-rmp-icon" src="/images/frontPage/rmp_icon.png"></image>
-      <text class="index-icon-text">敬请期待</text>
-    </view>
-  </view>
+<waterfall id="index-waterfall">
+</waterfall>

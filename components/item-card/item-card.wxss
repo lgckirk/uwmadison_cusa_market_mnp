@@ -1,0 +1,57 @@
+/* Card */
+.card {
+    display: block;
+    overflow: hidden;
+    border-radius: 7rpx;
+    margin-bottom: 20rpx;
+}
+
+.card image.card-img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.card.card-shadow {
+    box-shadow: 0 4rpx 4rpx 0 rgba(0, 0, 0, 0.14), 
+                0 1rpx 5rpx 0 rgba(0, 0, 0, 0.12), 
+                0 3rpx 1rpx -2rpx rgba(0, 0, 0, 0.2);
+}
+
+.card .card-details-container {
+
+    margin: 20rpx;
+}
+
+.card .card-img-container {
+    width: 100%;
+    display: block;
+    position: relative;
+
+    /* @review: want this little border here? -ryan*/
+    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+.card .card-container {
+
+    width: 100%;
+}
+
+.card .card-title {
+
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.card .card-description {
+
+    font-size: 35rpx;
+    color: rgb(100, 100, 100);
+}
+
+.card .card-time {
+
+    font-size: 25rpx;
+    color: rgb(140, 140, 140);
+}
