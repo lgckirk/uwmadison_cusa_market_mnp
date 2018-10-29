@@ -1,4 +1,4 @@
-<nav id="index-nav">
+<nav id="index-nav" style="width: 100%; z-index: 10; position: fixed; background-color: white;">
 </nav>
 <waterfall id="index-waterfall">
 </waterfall>

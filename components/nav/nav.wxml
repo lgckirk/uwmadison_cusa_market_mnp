@@ -1,31 +1,10 @@
 <view class="nav-bar">
   <scroll-view class='nav-bar-scroll' scroll-x>
-    <view class='nav-cell' id='nav-cell-0' data-typeid='0' bindtap='changeData'>
-      <text class="nav-text {{clsid==0?'nav-text-bold':''}}">推荐</text>
+    <view class="nav-cell" >
+      <text class="nav-text {{clsid==0?'nav-text-bold':''}}" id="0" bindtap='changeData'>推荐</text>
     </view>
-    <view class='nav-cell' id="nav-cell-2" data-typeid='2' bindtap='changeData'>
-      <text class="nav-text {{clsid==2?'nav-text-bold':''}}">日用家具</text>
-    </view>
-    <view class='nav-cell' id="nav-cell-3" data-typeid='3' bindtap='changeData'>
-      <text class="nav-text {{clsid==3?'nav-text-bold':''}}">电子产品</text>
-    </view>
-    <view class='nav-cell' id="nav-cell-4" data-typeid='4' bindtap='changeData'>
-      <text class="nav-text {{clsid==4?'nav-text-bold':''}}">学术用品</text>
-    </view>
-    <view class='nav-cell' id="nav-cell-5" data-typeid='5' bindtap='changeData'>
-      <text class="nav-text {{clsid==5?'nav-text-bold':''}}">衣橱衣服</text>
-    </view>
-    <view class='nav-cell' id="nav-cell-6" data-typeid='6' bindtap='changeData'>
-      <text class="nav-text {{clsid==6?'nav-text-bold':''}}">房屋转租</text>
-    </view>
-    <view class='nav-cell' id="nav-cell-7" data-typeid='7' bindtap='changeData'>
-      <text class="nav-text {{clsid==7?'nav-text-bold':''}}">交通用品</text>
-    </view>
-    <view class='nav-cell' id="nav-cell-8" data-typeid='8' bindtap='changeData'>
-      <text class="nav-text {{clsid==8?'nav-text-bold':''}}">美妆护肤</text>
-    </view>
-    <view class='nav-cell' id="nav-cell-1" data-typeid='1' bindtap='changeData'>
-      <text class="nav-text {{clsid==1?'nav-text-bold':''}}">其他宝贝</text>
+    <view class="nav-cell" wx:for="{{productType}}" wx:for-index="id" wx:for-item="type">
+      <text class="nav-text {{clsid==id+1?'nav-text-bold':''}}" id="{{id+1}}" bindtap='changeData'>{{type}}</text>
     </view>
   </scroll-view>
 </view>

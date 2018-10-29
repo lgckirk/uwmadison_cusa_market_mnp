@@ -1,18 +1,14 @@
+const app = getApp();
 Component({
-  methods: {
-    changeData:function(e){
-      var currentTypeId = e.currentTarget.dataset.typeid;
-      this.setData({
-        clsid:currentTypeId
-      });
-      var typeId = e.currentTarget.dataset.typeid;
-      console.log(e);
-      //TODO:Change card data on the view
-    }
+  properties: {
+      /* Product Type the nav bar is supposed to show. */
+      productType: {
+          type: Array,
+          value: app.globalData.metaProductTypes
+      }
   },
-  ready(){
-    this.setData({
-      clsid: 0
-    });
+  data: { clsid: 0 }, //clsid mark the id for the selected type cell
+  methods: {
+    changeData:function(e){ this.setData({ clsid: e.currentTarget.id }); }
   }
 });

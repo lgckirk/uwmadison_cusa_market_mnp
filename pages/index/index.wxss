@@ -1,13 +1,11 @@
 #index-waterfall {
     display: block;
-	padding-top: 100rpx; /* more padding to make space for nav-bar */
+	padding-top: 50px;
     background-color: #F2F3F4;
 }
 
-#index-nav{
-    position: fixed; /* fix nav-bar at top while scroll */
-    width: 100%;  
-    overflow-x: scroll; /* make the fixed view scrollable */
+#index-nav {
+    z-index: 10; 
+    position: fixed; 
     background-color: white;
-    z-index: 2;
 }

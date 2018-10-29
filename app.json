@@ -2,11 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/myProduct/myProduct",
-    "pages/aboutUs/aboutUs",
-    "pages/market/market",
-    "pages/market/productList/productList",
-    "pages/market/productDetail/productDetail",
-    "pages/market/postProduct/postProduct"
+    "pages/productDetail/productDetail",
+    "pages/postProduct/postProduct"
   ],
   "window": {
     "navigationBarBackgroundColor": "#FFFFFF",
@@ -26,7 +23,7 @@
         "selectedIconPath": "images/frontPage/home.png"
       },
       {
-        "pagePath": "pages/market/postProduct/postProduct",
+        "pagePath": "pages/postProduct/postProduct",
         "text": "发布",
         "iconPath": "images/frontPage/post.png",
         "selectedIconPath": "images/frontPage/post.png"
