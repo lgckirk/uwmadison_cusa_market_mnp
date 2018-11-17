@@ -2,71 +2,113 @@ import util from "../../lib/utility";
 import Product from "../../models/Product";
 
 const app = getApp();
+const noTypeId = 0;
 
 Page({
   data: {
-    loginFinished: false,
-    items: [] // @test
+    typeMap: Object.assign({
+      recommend: {id: noTypeId, name: "推荐"}
+    }, util.productIdAndName),
+    loadingFinish: false, // @todo: use this to implement loading,
+    pageOffset: -1,
+    currentType: noTypeId
   },
 
-  onLoad: function () {
+  /**
+   * Callback for clicking type icon.
+   * This will reload current data with an array of products of
+   * the type user clicked on.
+   */
+  loadProductsWithType: function(e) {
+    const typeId = e.currentTarget.dataset.typeid;
+
+    // if we are on the same "page", just do a refresh
+    if (typeId == this.data.currentType) {
+      wx.startPullDownRefresh();
+      return;
+    }
+
+    // immediately indicate user's selection while waiting
+    // for server to respond
+    this.setData({
+      loadingFinish: false,
+      currentType: typeId,
+      pageOffset: -1
+    });
+
+    // if user wants to go back to "recommend", load all
+    if (typeId == noTypeId) {
+      util.getAllActiveProducts()
+      .then(data => {
+        this.selectComponent('#index-waterfall').resetProducts(data);
+      })
+      .finally(() => {
+        this.setData({ loadingFinish: true });
+      });
+    }
+    // otherwise load products of a specfic type
+    else {
+      util.getProductsByType(typeId)
+      .then(data => {
+        this.selectComponent('#index-waterfall').resetProducts(data);
+      })
+      .finally(() => {
+        this.setData({ loadingFinish: true });
+      });
+    }
   },
-  tapName: function(event) {
-    console.log(event)
-  },
-  onShow: function() {
 
-      // @test: this is just mock data -ryan
-      let mockData = 
-          [{
-                ProductId: 1,
-                ProductName: "Lucky 2B2B 明年转租",
-                DateCreated: "2013-02-08 09:30:26",
-                ProductImages: ["https://lucky.stevebrownapts.com/wp-content/uploads/2016/04/Lucky-1320-CNP-1024x683.jpg"]
-            },
-            {
-                ProductId: 2,
-                ProductName: "兰蔻小黑瓶 全新未拆封 机场购入",
-                DateCreated: "2018-02-08 19:40:24",
-                ProductImages: ["http://p1.ol-img.com/product/400x400/1/81/56ab1bad2e92a.jpg"]
-            },
-            {
-                ProductId: 3,
-                ProductName: "这个啥玩意 不知道从哪里翻出来的 卖掉算了",
-                DateCreated: "2018-02-08 19:40:24",
-                ProductImages: ["http://p1.ol-img.com/product/400x400/1/81/56ab1bad2e92a.jpg"]
-            },
-            {
-                ProductId: 4,
-                ProductName: "iPhone XS 全新不想要两块钱送了",
-                DateCreated: "2018-10-08 09:30:26",
-                ProductImages: ["https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-Xs-line-up-09122018_inline.jpg.large.jpg"]
-            }
-          ];
-
-        let products = mockData.map((x) => new Product(x));
-        this.setData({
-            items: products
-        });
+  onReady: function() {
+    // initialize "recommend" products
+    util.getAllActiveProducts().then(data => {
+      this.selectComponent('#index-waterfall').addProducts(data);
+      this.setData({ loadingFinish: true });
+    });
+    this.setData({ pageOffset: -1 });
   },
 
-    onReady: function() {
-
-        const component = this.selectComponent('#index-waterfall');
-        component.addProducts(this.data.items);
-    },
-
-  //@lyj: 好像小程序自己有返回上一页面功能，不用自己写了  
   jumpToMarket: util.getPageJumpCallback('/pages/market/market'),
+
   jumpToPostProduct: util.getPageJumpCallback('/pages/market/postProduct/postProduct'),
   
-  // disable pull down
   onPullDownRefresh: function () {
+    const curType = this.data.currentType;
 
-      //@test: not real pull down refresh
-      const component = this.selectComponent('#index-waterfall');
-      component.addProducts(this.data.items);
+    // if we are on the recommend "page"
+    if (curType == noTypeId) {
+      util.getAllActiveProducts().then(data => {
+        this.selectComponent('#index-waterfall').resetProducts(data);
+        wx.stopPullDownRefresh();
+      });
+    }
+    // else query with a particualr type
+    else {
+      util.getProductsByType(curType).then(data => {
+        this.selectComponent('#index-waterfall').resetProducts(data);
+        wx.stopPullDownRefresh();
+      });
+    }
+    // reset current page offset
+    this.setData({ pageOffset: -1 });
+  },
 
-      wx.stopPullDownRefresh()
+  onReachBottom: function () {
+    // fetch next page of products
+    // @review what happens when the page is not long enough to be "scrollable"? - gaochang
+    const curType = this.data.currentType;
+    const offset = this.data.pageOffset < 0 ?
+        undefined : this.data.pageOffset;
+
+    // if we are on the recommend "page"
+    if (curType == noTypeId) {
+      util.getAllActiveProducts(offset).then(data => {
+        this.selectComponent('#index-waterfall').addProducts(data);
+      });
+    }
+    else {
+      util.getProductsByType(curType, offset).then(data => {
+        this.selectComponent('#index-waterfall').addProducts(data);
+      });
+    }
   }
 })

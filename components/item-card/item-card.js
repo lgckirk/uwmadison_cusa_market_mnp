@@ -30,11 +30,5 @@ Component({
   },
 
   methods: {
-    tapName: function(){
-      wx.navigateTo({
-        //@note: the project directory is restructured
-        url: '../productDetail/productDetail'
-      });
-    }
   }
 })
