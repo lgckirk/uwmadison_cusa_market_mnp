@@ -1,4 +1,4 @@
-<view class="card card-wrapper card-shadow" bindtap="tapName">
+<view class="card card-wrapper card-shadow">
     <div class="card-container">
         <div class="card-img-container">
                 <image class="card-img" src="{{product.productImages[0]}}" mode="widthFix" lazy-load="true">
@@ -6,7 +6,7 @@
         </div>
 
         <div class="card-details-container">
-            <h3 class="card-title">{{product.productName}}</h3>
+            <view class="card-title">{{product.productName}}</view>
             <span class="card-time"> {{product.dateCreatedRelative}} </span>
         </div>
     </div>

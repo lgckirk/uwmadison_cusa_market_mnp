@@ -1,4 +1,16 @@
-<nav id="index-nav" style="width: 100%; z-index: 10; position: fixed; background-color: white;">
-</nav>
+<view class="nav-bar">
+  <scroll-view class='nav-bar-scroll' scroll-x>
+    <view
+      wx:for="{{typeMap}}"
+      wx:key="{{index}}"
+      class='nav-cell'
+      id="nav-cell-{{item.id}}"
+      data-typeid="{{item.id}}"
+      bindtap="loadProductsWithType">
+      <text class="nav-text {{currentType==item.id?'nav-text-bold':''}}">{{item.name}}</text>
+    </view>
+  </scroll-view>
+</view>
+
 <waterfall id="index-waterfall">
 </waterfall>

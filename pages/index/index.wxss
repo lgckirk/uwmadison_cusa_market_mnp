@@ -1,11 +1,33 @@
 #index-waterfall {
-    display: block;
-	padding-top: 50px;
-    background-color: #F2F3F4;
+  display: block;
+	padding-top: 25rpx;
+  background-color: #F2F3F4;
 }
 
-#index-nav {
-    z-index: 10; 
-    position: fixed; 
-    background-color: white;
+/* nav bar */
+.nav-text{
+  font-size: 25rpx;
+  color:#ABB2B9;
+}
+
+.nav-text-bold{
+  font-weight: bold;
+  color: black;
+}
+
+.nav-bar{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.nav-bar-scroll{
+  white-space: nowrap;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.nav-cell{
+  display:inline-block;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
 }
