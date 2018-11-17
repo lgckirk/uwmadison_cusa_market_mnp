@@ -1,9 +1,0 @@
-<!--二手市场分类页面-->
-<view class="market-container">
-  <image class="market-title" mode="widthFix" src="/images/usedItemMarket/buy/title.png"></image>
-
-  <view class="market-set" wx:for='{{productTypes}}' wx:for-index='key'>
-    <image class="market-icon-image"  mode="widthFix" src="{{productTypes[key].iconUrl}}"
-      id="{{key}}" bindtap="jumpToProductList"></image>
-  </view>
-</view>

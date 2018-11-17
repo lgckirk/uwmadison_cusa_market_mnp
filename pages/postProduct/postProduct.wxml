@@ -1,0 +1,27 @@
+<view class="booth">
+    <swiper class="gallery" indicator-dots="true">
+        <swiper-item> 
+            <image src="https://assets.pcmag.com/media/images/519395-iphone-xs-max.jpg?width=810&height=456"></image> 
+        </swiper-item>
+        <swiper-item> 
+            <image src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-Xs-line-up-09122018_inline.jpg.large.jpg"> </image>
+        </swiper-item>
+        <swiper-item>
+            <view class="wrapper">
+                <view class="plus plus-vertical"></view>
+                <view class="plus plus-horizontal"></view>
+                <view class="instruction">点击添加/更换图片</view>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view class="foot-bar">
+        <input placeholder="添加商品描述" />
+        <picker mode="selector" value="{{index}}" range="{{array}}">
+        <view> {{array[index]}} </view>
+        </picker>
+    </view>
+</view>
+<view id="bottom">
+    <view id="post-button">发布</view>
+    <view id="next-button">下一个</view>
+</view>

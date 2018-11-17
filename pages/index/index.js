@@ -11,7 +11,9 @@ Page({
 
   onLoad: function () {
   },
-
+  tapName: function(event) {
+    console.log(event)
+  },
   onShow: function() {
 
       // @test: this is just mock data -ryan
@@ -46,23 +48,6 @@ Page({
         this.setData({
             items: products
         });
-
-      // wx.request({
-      //     url: app.getServerUrl("market"),
-      //     data: { "Action": "GetProductsByType", "TypeId": 2 }, // @test
-      //     method: "POST",
-      //     header: {
-      //         "content-type": "application/x-www-form-urlencoded",
-      //     },
-      //     dataType: "json",
-      //     success: (res) => {
-      //         let json = res.data.Products;
-      //         let products = json.map((x) => new Product(x))
-      //         this.setData({
-      //             items: products
-      //         });
-      //     }
-      // });
   },
 
     onReady: function() {
@@ -71,8 +56,8 @@ Page({
         component.addProducts(this.data.items);
     },
 
+  //@lyj: 好像小程序自己有返回上一页面功能，不用自己写了  
   jumpToMarket: util.getPageJumpCallback('/pages/market/market'),
-
   jumpToPostProduct: util.getPageJumpCallback('/pages/market/postProduct/postProduct'),
   
   // disable pull down

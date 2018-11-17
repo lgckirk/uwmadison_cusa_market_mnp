@@ -1,0 +1,86 @@
+/* @TODO: 把所有height按照百分比来写
+   @TODO: 试试能不能与productDetail共用一部分Component */
+.booth {
+  background-color: #e5e5e5; 
+  height: 950rpx; 
+  width: 618rpx; 
+  margin-top: 10%;
+  margin-left: 50%;
+  transform: translate(-50%, 0%);
+  border-radius: 10px 10px 5px 5px; 
+  box-shadow: 0px 0px 10px 0px rgba(229, 229, 229, 1);
+}
+
+.gallery{
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  overflow-x: scroll;
+  flex-direction: row;
+  position: relative;
+  background-color: #e5e5e5;
+  height: 808rpx;
+  width: 618rpx;
+  border-radius: 10px 10px 5px 5px; 
+}
+image {
+  flex-shrink: 0;
+  width: 618rpx;
+  max-width: 618rpx;
+  height: 100%;
+
+}
+
+.foot-bar{
+  background-color: white;
+  position: absolute;
+  bottom: 0px;
+  height: 122rpx; /* Real Height is 122 + 20 = 144 as there is padding */
+  width: 592rpx;
+  overflow-y: hidden;
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: 0px 0px 10px 0px rgba(229, 229, 229, 1);
+  padding-left: 26rpx;
+  padding-top: 20rpx; 
+  color: rgba(16, 16, 16, 1);
+  font-size: 26rpx;
+  font-family: -apple-system;
+}
+/* wrapper for add picture screen*/
+.wrapper{
+  position:relative; 
+  width: 618rpx; 
+  flex-shrink: 0; 
+  height: 100%;
+}
+
+.plus{
+  flex-shrink: 0; 
+  position: absolute;   
+  left: 50%; 
+  top: 50%; 
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+.plus-vertical{
+  width:19.77rpx; 
+  height: 142rpx;  
+  
+}
+
+.plus-horizontal{
+  flex-shrink: 0; 
+  position: absolute; 
+  width:142rpx; 
+  height: 19.77rpx; 
+}
+
+.instruction{
+  position: absolute; 
+  bottom: 246rpx; 
+  left: 50%; 
+  transform: translate(-50%, 0); 
+  color: rgba(70, 69, 69, 1); 
+  font-size: 14px;
+}

@@ -11,9 +11,11 @@
 .nav-bar{
   padding-left: 20rpx;
   padding-right: 20rpx;
+  width: 100%;
 }
 
 .nav-bar-scroll{
+  width: 100%;
   white-space: nowrap;
   padding-top: 15rpx;
   padding-bottom: 15rpx;
