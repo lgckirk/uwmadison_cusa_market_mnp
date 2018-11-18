@@ -41,8 +41,8 @@ Page({
       util.getAllActiveProducts()
       .then(data => {
         this.selectComponent('#index-waterfall').resetProducts(data);
-      })
-      .finally(() => {
+        this.setData({ loadingFinish: true });
+      }, () => {
         this.setData({ loadingFinish: true });
       });
     }
@@ -51,8 +51,8 @@ Page({
       util.getProductsByType(typeId)
       .then(data => {
         this.selectComponent('#index-waterfall').resetProducts(data);
-      })
-      .finally(() => {
+        this.setData({ loadingFinish: true });
+      }, () => {
         this.setData({ loadingFinish: true });
       });
     }
@@ -94,20 +94,20 @@ Page({
 
   onReachBottom: function () {
     // fetch next page of products
-    // @review what happens when the page is not long enough to be "scrollable"? - gaochang
     const curType = this.data.currentType;
-    const offset = this.data.pageOffset < 0 ?
-        undefined : this.data.pageOffset;
+    const offset = Math.max(this.data.pageOffset, 0);
 
     // if we are on the recommend "page"
     if (curType == noTypeId) {
       util.getAllActiveProducts(offset).then(data => {
         this.selectComponent('#index-waterfall').addProducts(data);
+        this.setData({ pageOffset: offset + data.length });
       });
     }
     else {
       util.getProductsByType(curType, offset).then(data => {
         this.selectComponent('#index-waterfall').addProducts(data);
+        this.setData({ pageOffset: offset + data.length });
       });
     }
   }

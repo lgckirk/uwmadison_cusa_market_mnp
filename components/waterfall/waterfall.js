@@ -52,30 +52,25 @@ Component({
 
   methods: {
     addProducts: function (products) {
+      // if no products available, just bail out (don't refresh the page)
+      if (!products || products.length == 0) {
+        return;
+      }
+
       //@todo: check null
       var tempColumns = this.data._columns,
         current,
         cursor = 0;
+
+      // put products in columns in a round-robin fashion
+      // @todo instead of this, determine which is next by examining block height
       for (var i = 0; i < products.length; i++) {
-        // @review: as of right now the logic is limited to
-        // alternating between columns. This can lead to 
-        // uneven column height as number of items grows.
-        // 
-        // The problem here is that we can't see the future. 
-        // The size of the image is unknown at the time of this method call,
-        // and it will only be clear after being loaded by WeChat.
-        //
-        // To solve this we can return the size of the image with
-        // the API, and maintain a list of height of each column,
-        // and add the item to the colum with least height. 
-        // However this does involve API change. -ryan
         current = products[i];
         cursor = i % this.data.columnCount; // which column?
         tempColumns[cursor].column.push(current);
       }
 
-      // @review: is this expensive with more data?
-      // Does WeChat try to re-render old items as well? -ryan
+      // reset column data
       this.setData({
         _columns: tempColumns
       });
