@@ -10,7 +10,7 @@
 1. 增加页面Event Handler:
         a) onRefresh
         b) onReachBottom
-2. 在util里加入getProductByUser
+2. ~~在util里加入getProductByUser~~
 ## C. waterfall 
 1.  根据column长度，动态分配新加入的product该放在哪个column
 ## D. productDetail
