@@ -66,10 +66,6 @@ Page({
     });
     this.setData({ pageOffset: -1 });
   },
-
-  jumpToMarket: util.getPageJumpCallback('/pages/market/market'),
-
-  jumpToPostProduct: util.getPageJumpCallback('/pages/market/postProduct/postProduct'),
   
   onPullDownRefresh: function () {
     const curType = this.data.currentType;
