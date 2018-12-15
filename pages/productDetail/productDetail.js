@@ -7,5 +7,4 @@ Page({
     array: app.globalData.metaProductTypes,
     index: 0
   },
-  jumpToPostProduct: util.getPageJumpCallback('/pages/market/postProduct/postProduct')
 })

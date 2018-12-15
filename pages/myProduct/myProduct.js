@@ -53,10 +53,6 @@ Page({
     const component = this.selectComponent('#index-waterfall');
         component.addProducts(this.data.items);
     },
-
-  //@lyj: 好像小程序自己有返回上一页面功能，不用自己写了  
-  jumpToMarket: util.getPageJumpCallback('/pages/market/market'),
-  jumpToPostProduct: util.getPageJumpCallback('/pages/market/postProduct/postProduct'),
   
   // disable pull down
   onPullDownRefresh: function () {
