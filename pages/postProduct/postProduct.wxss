@@ -1,5 +1,19 @@
+page {
+  overflow-y: hidden;
+}
+
 /* @TODO: 把所有height按照百分比来写
    @TODO: 试试能不能与productDetail共用一部分Component */
+.x-scroller {
+  display: flex; 
+  flex-direction: row; 
+  width: 100%; /* Default Width*/
+  justify-content: space-evenly;
+}
+
+.x-scroll-item{
+  width: 50%; 
+}
 .booth {
   background-color: #e5e5e5; 
   height: 950rpx; 
@@ -45,6 +59,24 @@ image {
   color: rgba(16, 16, 16, 1);
   font-size: 26rpx;
   font-family: -apple-system;
+  display: flex;
+  flex-direction: row;
+}
+
+.half{
+  height: 100%;
+  overflow-y: scroll;
+}
+.left{
+  width: 30%;
+}
+.right{
+  width: 70%;
+}
+.half textarea{
+  padding-top: 5px;
+  height: 100%;
+  width: 100%;
 }
 /* wrapper for add picture screen*/
 .wrapper{
@@ -85,7 +117,7 @@ image {
   font-size: 14px;
 }
 
-#bottom{
+.bottom{
   width: 520rpx;
   display: flex;
   margin-left: 50%;
@@ -93,22 +125,27 @@ image {
   margin-top: 52rpx;
 }
 
-#post-button{
-  width: 260rpx;
-  line-height: 40rpx;
-  border: 1px solid rgba(255, 39, 65, 1);
-  border-radius: 10px 0px 0px 10px;
-  color: red;
-  font-size: 28rpx;
-  text-align: center;  
-}
-
-#next-button{
-  width: 260rpx;
+.bottom-button{
+  width: 260rpx; 
   line-height: 40rpx;
   background-color: rgba(255, 39, 65, 1);
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.post-button{
+  background-color: white;
+  border: 1px solid rgba(255, 39, 65, 1);
+  border-radius: 0px 0px 0px 0px;
+  color: red;  
+}
+
+.prev-button{
+  border-radius: 10px 0px 0px 10px;
+  color: white;
+}
+
+.next-button{
   border-radius: 0px 10px 10px 0px;
   color: white;
-  font-size: 28rpx;
-  text-align: center;   
 }

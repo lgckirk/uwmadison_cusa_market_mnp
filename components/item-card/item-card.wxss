@@ -21,7 +21,7 @@
 }
 
 .card .card-details-container {
-
+    position: relative;
     margin: 20rpx;
 }
 
@@ -52,7 +52,21 @@
 }
 
 .card .card-time {
-
+    display: inline-block;
     font-size: 25rpx;
     color: rgb(140, 140, 140);
+}
+
+.card .card-endlist {
+    position: absolute;
+    bottom: 0px;
+    right : 5px;
+    width: 55px;
+    height: 17px;
+    line-height: 16px;
+    border-radius: 5px 5px 5px 5px;
+    color: rgba(16, 16, 16, 1);
+    font-size: 11px;
+    text-align: center;
+    border: 1px solid rgba(187, 187, 187, 1);
 }

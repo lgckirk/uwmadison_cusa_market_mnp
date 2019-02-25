@@ -1,11 +1,40 @@
 #index-waterfall {
-    display: block;
-    padding-top: 25px;
-    background-color: #F2F3F4;
+  display: block;
+  margin-top: 50px;
+  padding-top: 25px;
+  background-color: #F2F3F4;
 }
 
-#index-nav {
-    z-index: 10; 
-    position: fixed; 
-    background-color: white;
+/* nav bar */
+.nav-text{
+  font-size: 25rpx;
+  color:#ABB2B9;
+}
+
+.nav-text-bold{
+  font-weight: bold;
+  color: black;
+}
+
+.nav-bar{
+  z-index: 10;
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.nav-bar-scroll{
+  padding-left: 90rpx;
+  white-space: nowrap;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.nav-cell{
+  display:inline-block;
+  padding-left: 20rpx;
+  padding-right: 40rpx;
 }

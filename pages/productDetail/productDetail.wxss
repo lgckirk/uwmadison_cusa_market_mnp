@@ -1,5 +1,3 @@
-/* @TODO: 把所有height按照百分比来写
-   @TODO: 试试能不能与productDetail共用一部分Component */
 .booth {
   background-color: #e5e5e5; 
   height: 950rpx; 
@@ -9,6 +7,15 @@
   transform: translate(-50%, 0%);
   border-radius: 10px 10px 5px 5px; 
   box-shadow: 0px 0px 10px 0px rgba(229, 229, 229, 1);
+}
+
+.contact{
+  z-index: 10; 
+  position: absolute; 
+  left:5px; 
+  top:5px;
+  height:50px; 
+  width:50px;
 }
 
 .gallery{
@@ -35,7 +42,7 @@ image {
   background-color: white;
   position: absolute;
   bottom: 0px;
-  height: 122rpx; /* Real Height is 122 + 20 = 144 as there is padding */
+  min-height: 122rpx; /* Real Height is 122 + 20 = 144 as there is padding */
   width: 592rpx;
   overflow-y: hidden;
   border-radius: 0px 0px 5px 5px;
@@ -83,4 +90,10 @@ image {
   transform: translate(-50%, 0); 
   color: rgba(70, 69, 69, 1); 
   font-size: 14px;
+}
+
+.description{
+  color: grey;
+  overflow-y: scroll;
+  height: 64%;
 }

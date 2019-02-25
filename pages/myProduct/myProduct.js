@@ -1,65 +1,88 @@
+
 import util from "../../lib/utility";
 import Product from "../../models/Product";
 
 const app = getApp();
-
+const noTypeId = 0;
 Page({
   data: {
+    typeMap: [{id:-1, name:"全部"},{id:7, name:"售卖中"},{id:8, name:"过期"},{id:9, name:"已下架"}],
     loginFinished: false,
-    items: [] // @test
+    lastId: -1,
+    currentType: -1
   },
-
   onLoad: function () {
+    let loadErr = undefined;
+    util.showLoading()
+    .then(util.getMyContact)
+    .then(hasContact=>this.setData({hasContact}))
+    .then(()=>this.loadProductWithStatus(-1))
+    .catch(function(err){
+      console.log("Error loading Product");
+      console.log(err);
+      loadErr = err;
+    })
+    .then(util.hideLoading)
+    .then(()=>{
+      if (loadErr) return util.showToast("加载失败，请稍后重试", "none");
+    })
   },
-  tapName: function(event) {
-    console.log(event)
+  uploadContact: function(){
+    if (this.uploadContact.onUpload) return;
+    this.uploadContact.onUpload = true;
+    var uploadErr = false, hasUploaded = false;
+    util.showLoading()
+    .then(util.uploadMyContact)
+    .then(imageChosen=>{
+      console.log(imageChosen);
+      hasUploaded = imageChosen;
+      this.setData({"hasContact": this.data.hasContact||imageChosen});
+    })
+    .catch(err=>uploadErr = err)
+    .then(()=>this.uploadContact.onUpload = false)
+    .then(util.hideLoading)
+    .then(()=>{
+      if (uploadErr) util.showToast("服务器连接错误");
+      if (hasUploaded) util.showToast("成功上传二维码!");
+      setTimeout(()=>this.onPullDownRefresh(), 1000);
+    })
   },
-  onShow: function() {
-      // @test: this is just mock data -ryan
-      let mockData = 
-          [{
-                ProductId: 1,
-                ProductName: "Lucky 2B2B 明年转租",
-                DateCreated: "2013-02-08 09:30:26",
-                ProductImages: ["https://lucky.stevebrownapts.com/wp-content/uploads/2016/04/Lucky-1320-CNP-1024x683.jpg"]
-            },
-            {
-                ProductId: 2,
-                ProductName: "兰蔻小黑瓶 全新未拆封 机场购入",
-                DateCreated: "2018-02-08 19:40:24",
-                ProductImages: ["http://p1.ol-img.com/product/400x400/1/81/56ab1bad2e92a.jpg"]
-            },
-            {
-                ProductId: 3,
-                ProductName: "这个啥玩意 不知道从哪里翻出来的 卖掉算了",
-                DateCreated: "2018-02-08 19:40:24",
-                ProductImages: ["http://p1.ol-img.com/product/400x400/1/81/56ab1bad2e92a.jpg"]
-            },
-            {
-                ProductId: 4,
-                ProductName: "iPhone XS 全新不想要两块钱送了",
-                DateCreated: "2018-10-08 09:30:26",
-                ProductImages: ["https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-Xs-line-up-09122018_inline.jpg.large.jpg"]
-            }
-          ];
-
-        let products = mockData.map((x) => new Product(x));
-        this.setData({
-            items: products
-        });
+  statusChanged: function(e){
+    let status = e.currentTarget.dataset.typeid;
+    this.setData({"currentType": status});
+    this.setData({"lastId": -1});
+    this.loadProductWithStatus(status);
   },
-
-  onReady: function() {
-    const component = this.selectComponent('#index-waterfall');
-        component.addProducts(this.data.items);
-    },
-  
+  loadProductWithStatus: function(status){
+    if (!this.data.hasContact) return new Promise((res, rej)=>res());
+    getApp().globalData.contextStatus = status;
+    let hasMoreProduct, hasErr = null;
+    return util.showLoading()
+    .then(()=>util.getMyProduct(this.data.lastId, undefined, status))
+    .then(products=>{
+      hasMoreProduct = products.length>0;
+      let prevLastId = this.data.lastId;
+      if (products.length>0)
+        this.setData({"lastId": Math.min(...products.map(p=>p.productId))});
+      return (prevLastId == -1)?
+      this.selectComponent('#index-waterfall').resetProducts(products):
+      this.selectComponent('#index-waterfall').addProducts(products);     ;
+    })
+    .catch(err=>{
+      console.log("Fail Load My Product With Status " + status);
+      console.log(err);
+      hasErr = err;
+    })
+    .then(util.hideLoading)
+    .then(()=>hasErr?util.showToast("加载产品失败", "none"):null);
+  },
   // disable pull down
   onPullDownRefresh: function () {
-      //@test: not real pull down refresh
-      const component = this.selectComponent('#index-waterfall');
-      component.addProducts(this.data.items);
-
-      wx.stopPullDownRefresh()
+      this.setData({"lastId": -1});
+      this.loadProductWithStatus(this.data.currentType)
+      .then(wx.stopPullDownRefresh);
+  },
+  onReachBottom: function() {
+     this.loadProductWithStatus(this.data.currentType);
   }
 })

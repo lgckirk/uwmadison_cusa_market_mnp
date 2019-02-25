@@ -1,7 +1,7 @@
 #index-waterfall {
   display: block;
-	padding-top: 25rpx;
-  background-color: #F2F3F4;
+  padding-top: 25px;
+  /*background-color: #F2F3F4;*/
 }
 
 /* nav bar */
@@ -16,6 +16,11 @@
 }
 
 .nav-bar{
+  z-index: 10;
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  top: 0px;
   padding-left: 20rpx;
   padding-right: 20rpx;
 }
@@ -29,5 +34,47 @@
 .nav-cell{
   display:inline-block;
   padding-left: 20rpx;
-  padding-right: 20rpx;
+  padding-right: 40rpx;
+}
+
+/* SearchBar */
+.page_row{  
+  display: flex;  
+  flex-direction: row;  
+} 
+.search{  
+  width: 97%;  
+  background-color: #f0f0f0;
+  border-radius: 100rpx;
+  margin-bottom: 10px;
+}  
+.search_arr {  
+  display: flex;
+  flex-direction: row;
+}  
+.search_arr input{  
+  margin-left: 60rpx;  
+  height: 10px;  
+}  
+.searchcion {  
+  z-index: 2;    
+  text-align: center;  
+  margin-top: auto;
+  margin-bottom: auto;
+}  
+.searchbox{
+  font-size: 25rpx;
+  width: 80%;
+}
+
+.page-content{
+  display: block;
+  margin-top: 60px;
+  padding-top: 25px;
+  background-color: white;
+}
+
+.banner{
+  width: 100%;
+  height: 150px;
 }

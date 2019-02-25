@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wxe15b72fcb2ae69ad",
-	"projectname": "%E9%BA%A6%E7%94%9F%E6%B4%BB",
+	"projectname": "MadBar-Local",
 	"condition": {
 		"search": {
 			"current": -1,

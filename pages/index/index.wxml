@@ -10,7 +10,26 @@
       <text class="nav-text {{currentType==item.id?'nav-text-bold':''}}">{{item.name}}</text>
     </view>
   </scroll-view>
+
+<view class='page_row'>  
+    <view class="search">  
+      <view class="df search_arr">  
+        <input bindinput = "inputUpdate" class="searchbox"  placeholder="请输入关键字" value="{{bufferPattern}}"/>  
+        <icon class="searchcion" size='14' type='search' bindtap="search"></icon>  
+      </view>  
+    </view>  
+</view>  
+
 </view>
+
+
+<view class="page-content">
+<swiper class="banner" indicator-dots="true">
+    <swiper-item wx:for="{{bannerImages}}" wx:for-item="path"> 
+        <image src="{{path}}" style="width: 100%; height: 100%;" mode="aspectFit"></image> 
+    </swiper-item>
+</swiper>
 
 <waterfall id="index-waterfall">
 </waterfall>
+</view>
