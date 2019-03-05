@@ -38,12 +38,17 @@
  * @todo: make more customizable
  * 
  */
+ import util from "../../lib/utility";
 Component({
   properties: {
     "columnCount": {
       type: Number,
       value: 2
     },
+    "editable": {
+      type: Boolean,
+      value: false
+    }
   },
 
   data: {
@@ -52,44 +57,42 @@ Component({
 
   methods: {
     addProducts: function (products) {
-      // if no products available, just bail out (don't refresh the page)
-      if (!products || products.length == 0) {
-        return;
-      }
-
-      //@todo: check null
-      var tempColumns = this.data._columns,
-        current,
-        cursor = 0;
-
-      // put products in columns in a round-robin fashion
-      // @todo instead of this, determine which is next by examining block height
-      for (var i = 0; i < products.length; i++) {
-        current = products[i];
-        cursor = i % this.data.columnCount; // which column?
-        tempColumns[cursor].column.push(current);
-      }
-
-      // reset column data
-      this.setData({
-        _columns: tempColumns
-      });
+      if (!this._init.initialized) _init();
+      let dims = products.map(p=>p.productDims?p.productDims:null);
+      var tempColumns = this.data._columns,current;
+      if (!products || products.length==0)
+        return new Promise((res, rej)=>res());
+      console.log(dims);
+      return new Promise(res=>res())
+      .then(()=>{
+        for (var i = 0; i < products.length; i++) {
+          current = products[i];
+          if (dims[i] == null){
+            current.productImages[0] = "/images/noPicture.png";
+            dims[i] = {Width: 100, Height: 100};
+          }
+          // Always add product to the column with the min height
+          let minHeight = Math.min(...tempColumns.map(c=>c.height));
+          let targetCol = tempColumns.find(c=>(c.height == minHeight));
+          targetCol.column.push(current);
+          targetCol.height += dims[i].Height * 100/dims[i].Width;
+        }
+        // Does WeChat try to re-render old items as well? -ryan
+        this.setData({_columns: tempColumns});
+      })
     },
-
     /**
      * Reset with some new array of products (if provided)
      */
     resetProducts: function (products) {
       this._init();
-      if (products) {
-        this.addProducts(products);
-      }
+      return this.addProducts(products);
     },
-
     /**
      * Initialzie internal representation of each column.
      */
     _init: function () {
+      this._init.initialized  = true;
       var temp = [];
       for (var i = 0; i < this.data.columnCount; i++) {
         // Adding a id field because according to tencent
@@ -97,7 +100,8 @@ Component({
         // But it's ugly as hell. -ryan
         temp[i] = {
           "id": i,
-          "column": []
+          "column": [],
+          "height": 0
         };
       }
       this.setData({
@@ -105,7 +109,6 @@ Component({
       });
     }
   },
-
   ready() {
     this._init();
   }

@@ -1,16 +1,12 @@
 <view class="booth">
-    <swiper class="gallery" indicator-dots="true">
-        <swiper-item> 
-            <image src="https://assets.pcmag.com/media/images/519395-iphone-xs-max.jpg?width=810&height=456"></image> 
-        </swiper-item>
-        <swiper-item> 
-            <image src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-Xs-line-up-09122018_inline.jpg.large.jpg"> </image>
+    <image src="contact.png" class="contact" mode="widthFit" bindtap="previewContact"></image>
+    <swiper class="gallery" indicator-dots="true" bindtap="previewImages">
+        <swiper-item wx:for-index="idx" wx:for="{{imgs}}" wx:for-item="imgSrc"> 
+            <image id= "{{'imgs[' + idx + ']'}}" src="{{imgSrc}}" mode="aspectFill" binderror="imgErr"> </image>
         </swiper-item>
     </swiper>
     <view class="foot-bar">
-        <input placeholder="添加商品描述" />
-        <picker mode="selector" value="{{index}}" range="{{array}}">
-        <view> {{array[index]}} </view>
-        </picker>
+        <view class="description"> {{description}}</view>
+        <view> #{{array[type]}} </view>
     </view>
 </view>

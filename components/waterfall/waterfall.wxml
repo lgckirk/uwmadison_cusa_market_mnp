@@ -2,7 +2,7 @@
     <!-- Extra wrapper cause flex don't work under scroll-view -->
     <view class="waterfall-wrapper">
         <view class="waterfall-column" wx:for="{{_columns}}" wx:for-item="columnWrapper" wx:key="id">
-            <item-card wx:for="{{columnWrapper.column}}" wx:for-item="product" product="{{product}}" wx:key="productId"></item-card>
+            <item-card wx:for="{{columnWrapper.column}}" wx:for-item="product" product="{{product}}" wx:key="productId" editable = "{{editable}}"></item-card>
         </view>
     </view>
 </scroll-view>

@@ -2,8 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/myProduct/myProduct",
-    "pages/productDetail/productDetail",
-    "pages/postProduct/postProduct"
+    "pages/postProduct/postProduct",
+    "pages/productDetail/productDetail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#FFFFFF",

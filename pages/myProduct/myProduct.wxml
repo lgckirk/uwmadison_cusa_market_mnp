@@ -1,2 +1,17 @@
-<waterfall id="index-waterfall" style="">
+<view class="nav-bar">
+  <image src="upload.svg" style="padding-bottom: 4px; width: 25px; height: 25px; display: inline-block;" bindtap="uploadContact"  ></image>
+  <scroll-view class='nav-bar-scroll' style="display: inline-block; width: 500rpx;" scroll-x>
+    <view
+      wx:for="{{typeMap}}"
+      wx:key="{{index}}"
+      class='nav-cell'
+      id="nav-cell-{{item.id}}"
+      data-typeid="{{item.id}}"
+      bindtap="statusChanged">
+      <text class="nav-text {{currentType==item.id?'nav-text-bold':''}}">{{item.name}}</text>
+    </view>
+  </scroll-view>
+</view>
+<image wx:if="{{hasContact!=undefined&&!hasContact}}" src="contact.png" style="width: 100%; padding-top: 100px;" mode="widthFix"></image>
+<waterfall wx:if="{{hasContact}}" id="index-waterfall" editable>
 </waterfall>

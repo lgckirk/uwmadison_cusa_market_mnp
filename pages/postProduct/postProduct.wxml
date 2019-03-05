@@ -1,27 +1,37 @@
-<view class="booth">
-    <swiper class="gallery" indicator-dots="true">
-        <swiper-item> 
-            <image src="https://assets.pcmag.com/media/images/519395-iphone-xs-max.jpg?width=810&height=456"></image> 
-        </swiper-item>
-        <swiper-item> 
-            <image src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-Xs-line-up-09122018_inline.jpg.large.jpg"> </image>
-        </swiper-item>
-        <swiper-item>
-            <view class="wrapper">
-                <view class="plus plus-vertical"></view>
-                <view class="plus plus-horizontal"></view>
-                <view class="instruction">点击添加/更换图片</view>
+<scroll-view scroll-with-animation="true"  scroll-x="{{enableScroll}}" scroll-into-view="{{scrollID}}">
+<view class="x-scroller" style="width: {{products.length*100 + '%'}}">
+<view wx:for="{{products}}" wx:key="{{index}}" wx:for-item="p" class="x-scroll-item" style="width: {{100/products.length + '%'}}" id="{{'id' + index}}">
+    <view class="booth">
+        <swiper class="gallery" indicator-dots="true">
+            <swiper-item wx:for="{{p.ProductImages}}" wx:for-item="path"> 
+                <image src="{{path}}" mode="aspectFill"></image> 
+            </swiper-item>
+            <swiper-item>
+                <view class="wrapper" bindtap="selectImage">
+                    <view class="plus plus-vertical"></view>
+                    <view class="plus plus-horizontal"></view>
+                    <view class="instruction">点击添加/更换图片</view>
+                </view>
+            </swiper-item>
+        </swiper>
+        <view class="foot-bar">
+            <view class="right half">
+                <textarea id="{{'d' + index}}" placeholder="添加商品描述" value="{{p.ProductDescription}}" bindinput="infoUpdate"/> 
             </view>
-        </swiper-item>
-    </swiper>
-    <view class="foot-bar">
-        <input placeholder="添加商品描述" />
-        <picker mode="selector" value="{{index}}" range="{{array}}">
-        <view> {{array[index]}} </view>
-        </picker>
+            <view class="left half">
+                <input id="{{'n' + index}}" placeholder="添加商品名字" value="{{p.ProductName}}" bindinput="infoUpdate" focus="{{index==focusField}}"/>
+                <picker id= "{{'t' + index}}" mode="selector" value="{{p.ProductType}}" range="{{array}}" bindchange="infoUpdate">
+                <view> {{array[p.ProductType]}} </view>
+                </picker>                
+            </view>
+
+        </view>
+    </view>
+    <view class="bottom" style="margin-bottom: 45px;">
+        <view bindtap="prevProduct" class="bottom-button prev-button" style="opacity: {{index==0?0.5:1}};">上一个</view>
+        <view class="bottom-button post-button" bindtap="postProducts">发布</view>
+        <view bindtap="nextProduct" class="bottom-button next-button">下一个</view>
     </view>
 </view>
-<view id="bottom">
-    <view id="post-button">发布</view>
-    <view id="next-button">下一个</view>
 </view>
+</scroll-view>
