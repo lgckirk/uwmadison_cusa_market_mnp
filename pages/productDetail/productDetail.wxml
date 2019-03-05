@@ -7,6 +7,6 @@
     </swiper>
     <view class="foot-bar">
         <view class="description"> {{description}}</view>
-        <view> #{{array[type]}} </view>
+        <view class="sub-description"> #{{array[type]}} </view>
     </view>
 </view>

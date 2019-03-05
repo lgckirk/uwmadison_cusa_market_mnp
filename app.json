@@ -12,27 +12,27 @@
     "backgroundColor": "#FFFFFF",
     "backgroundTextStyle": "dark",
     "enablePullDownRefresh": true,
-    "onReachBottomDistance": "50"
+    "onReachBottomDistance": 50
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/frontPage/home.png",
-        "selectedIconPath": "images/frontPage/home.png"
+        "iconPath": "images/icons/home_unselected.png",
+        "selectedIconPath": "images/icons/home_selected.png"
       },
       {
         "pagePath": "pages/postProduct/postProduct",
         "text": "发布",
-        "iconPath": "images/frontPage/post.png",
-        "selectedIconPath": "images/frontPage/post.png"
+        "iconPath": "images/icons/post_unselected.png",
+        "selectedIconPath": "images/icons/post_selected.png"
       },
       {
         "pagePath": "pages/myProduct/myProduct",
         "text": "我的商品",
-        "iconPath": "images/frontPage/mine.png",
-        "selectedIconPath": "images/frontPage/mine.png"
+        "iconPath": "images/icons/mine_unselected.png",
+        "selectedIconPath": "images/icons/mine_selected.png"
       }
     ],
     "color": "#000000",
