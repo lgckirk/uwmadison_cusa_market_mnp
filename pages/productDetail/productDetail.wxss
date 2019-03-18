@@ -11,11 +11,11 @@
 
 .contact{
   z-index: 10; 
-  position: absolute; 
-  left:5px; 
-  top:5px;
+  position: absolute;
+  bottom: 5px; 
+  right:13px; 
   height:50px; 
-  width:50px;
+  width:41.6px;
 }
 
 .gallery{
@@ -96,4 +96,11 @@ image {
   color: grey;
   overflow-y: scroll;
   height: 64%;
+  width: 74%
+}
+
+.sub-description {
+  padding-top: 4px;
+  padding-bottom: 8px;
+  width: 74%;
 }
