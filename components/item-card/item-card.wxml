@@ -1,13 +1,13 @@
 <view class="card card-wrapper card-shadow" bindtap="viewProduct" style="display: {{displayed?'block':'none'}};">
     <div class="card-container">
         <div class="card-img-container">
-                <image class="card-img" src="{{product.productImages[0]}}" mode="widthFix" lazy-load="true">
+                <image class="card-img" src="{{product.productImages[0]}}" mode="aspectFill" lazy-load="true">
             </image>
         </div>
 
         <div class="card-details-container">
             <view class="card-title">{{product.productName}}</view>
-            <span class="card-time"> {{product.dateCreatedRelative}} </span>
+            <p class="card-time"> {{product.dateCreatedRelative}} </p>
             <span class="card-endlist" catchtap="endList" style="display:{{editable&&product.productStatus==7?'inline-block':'none'}};"> 一键下架 </span>
             <span class="card-endlist" catchtap="republish" style="display:{{editable&&product.productStatus!=7?'inline-block':'none'}};"> 重新发布 </span>
         </div>

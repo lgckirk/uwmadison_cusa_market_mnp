@@ -2,58 +2,53 @@
 .card {
     display: block;
     overflow: hidden;
-    border-radius: 7rpx;
-    margin-bottom: 20rpx;
-    background-color: #FFFFFF;
+    margin-bottom: 30rpx;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: clear;
 }
 
 .card image.card-img {
     display: block;
-    width: 100%;
     max-width: 100%;
-    height: auto;
+    height: 180px;
+    border-radius: 12px;
 }
 
-.card.card-shadow {
+/* .card.card-shadow {
     box-shadow: 0 4rpx 4rpx 0 rgba(0, 0, 0, 0.14), 
                 0 1rpx 5rpx 0 rgba(0, 0, 0, 0.12), 
                 0 3rpx 1rpx -2rpx rgba(0, 0, 0, 0.2);
-}
+} */
 
 .card .card-details-container {
     position: relative;
-    margin: 20rpx;
+    padding-top: 10px;
 }
 
 .card .card-img-container {
     width: 100%;
     display: block;
     position: relative;
-
-    /* @review: want this little border here? -ryan*/
-    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
 }
 
 .card .card-container {
-
     width: 100%;
 }
 
 .card .card-title {
-
-    font-size: 30rpx;
+    font-size: 17px;
     font-weight: bold;
 }
 
 .card .card-description {
-
-    font-size: 35rpx;
+    font-size: 17px;
     color: rgb(100, 100, 100);
 }
 
 .card .card-time {
-    display: inline-block;
-    font-size: 25rpx;
+    font-size: 13px;
+    height: 17px;
     color: rgb(140, 140, 140);
 }
 
