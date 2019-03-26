@@ -9,6 +9,24 @@
   box-shadow: 0px 0px 10px 0px rgba(229, 229, 229, 1);
 }
 
+.home {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.home-pic {
+  z-index: 10;
+  display: block;
+  height:50px; 
+  width:41.6px;
+  margin: auto;
+}
+
+.home-txt {
+  font-size: 13px;
+  text-align: center;
+}
+
 .contact{
   z-index: 10; 
   position: absolute;
