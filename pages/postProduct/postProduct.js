@@ -19,6 +19,11 @@ Page({
   },
   nextProduct: function(){
     let currID = parseInt(this.data.scrollID.substring(2));
+    if (this.data.products[currID].ProductImages.length == 0)
+    {
+      util.showToast("需添加一张照片");
+      return;
+    }
     if (currID == this.data.products.length - 1) {
       let buffer = this.data.products;
       buffer.push({'ProductType': 1});
@@ -27,7 +32,7 @@ Page({
     currID++;
     this.setData({'enableScroll': true});
     this.setData({'scrollID': 'id' + currID});
-    // this.setData({'enableScroll': false});
+    this.setData({'enableScroll': false});
   },
   prevProduct: function(){
     let currID = parseInt(this.data.scrollID.substring(2));
@@ -35,7 +40,7 @@ Page({
     currID--;
     this.setData({'enableScroll': true});
     this.setData({'scrollID': 'id' + currID});
-    // this.setData({'enableScroll': false});
+    this.setData({'enableScroll': false});
   },
   infoUpdate: function(e){
     const fieldMap = {

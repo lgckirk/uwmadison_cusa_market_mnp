@@ -13,7 +13,6 @@
 }
 
 .waterfall .waterfall-column {
-
-    width: 45%;
+    width: 48%;
 }
 
