@@ -10,3 +10,8 @@
         <view class="sub-description"> #{{array[type]}} </view>
     </view>
 </view>
+
+<view class="home">
+  <image src="/images/frontPage/home.png" class="home-pic" mode="aspectFit" bindtap="goHome"></image>
+  <view class="home-txt">首页</view>
+</view>
